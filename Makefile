@@ -3,21 +3,19 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+         #
+#    By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 00:08:49 by aahlaqqa          #+#    #+#              #
-#    Updated: 2025/03/11 16:31:33 by aahlaqqa         ###   ########.fr        #
+#    Updated: 2025/03/17 01:16:53 by aibn-ich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-CC= cc
-
-CFLAGS= -Wall -Wextra -Werror
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
 # LDFLAGS = -g3 -fsanitize=address
-FLAGS=  -Lminilibx-linux -lmlx -lXext -lX11 -lm
-
-NAME= cub3D
+FLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm
+NAME = cub3D
 
 SOURCES= mendatory/parse_map.c mendatory/check_map.c mendatory/ft_strcmp.c Libft/ft_strrchr.c \
 Libft/ft_strlen.c Libft/ft_split.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c \
@@ -41,23 +39,17 @@ bonus/calculate_wall.c bonus/iterate_in_map.c bonus/iterate_color_map.c \
 bonus/handle_moves.c bonus/rotate.c bonus/free_textures.c \
 bonus/texture_errors.c bonus/alloc_texture.c bonus/init.c bonus/mouse.c
 
-OBJECTS= $(SOURCES:.c=.o)
-
-BOBJECTS= $(BONUS:.c=.o)
+HEADERS = ./cub3D.h
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS)
-	$(CC) $(OBJECTS) $(FLAGS) -o $(NAME)
+$(NAME): $(SOURCES) $(HEADERS)
+	$(CC) $(SOURCES) $(FLAGS) -o $(NAME)
 
-bonus: $(BOBJECTS)
-	$(CC) $(BOBJECTS) $(FLAGS) -o $(NAME)
-
-.c .o:
-	$(CC) -c $(CFLAGS) $< -o $@
+bonus: $(BONUS) $(HEADERS)
+	$(CC) $(BONUS) $(FLAGS) -o $(NAME)
 
 clean:
-	rm -f $(OBJECTS) $(BOBJECTS)
 
 fclean: clean
 	rm -f $(NAME)
@@ -65,5 +57,3 @@ fclean: clean
 re: fclean $(NAME)
 
 .PHONY: all clean fclean re bonus
-
-.SECONDARY: $(OBJECTS) $(BOBJECTS)

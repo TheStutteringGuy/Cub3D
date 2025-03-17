@@ -6,7 +6,7 @@
 /*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 02:45:36 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/06 16:20:23 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/15 01:50:57 by aahlaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 
 void	init_textures(t_data *data)
 {
+	if (data->door == 1)
+	{
+		data->r_texture = data->d_texture_data;
+		data->tex_width = data->d_tex_width;
+		data->tex_height = data->d_tex_height;
+		return;
+	}
 	if (data->side == 0 && data->raydir_x > 0)
 	{
 		data->r_texture = data->ea_texture_data;
