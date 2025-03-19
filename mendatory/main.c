@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 00:33:48 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/19 05:46:45 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/19 15:24:26 by aahlaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,8 @@ int	main(int argc, char **argv)
 	load_textures(&data);
 	get_texture_data(&data);
 	////////
-	Free_(&data);
-	exit(0);
+	// Free_(&data);
+	// exit(0);
 	////////
 	data.mlx_win = mlx_new_window(data.mlx, SCREEN_W, SCREEN_H, "Cub3D");
 	data.r_img = mlx_new_image(data.mlx, SCREEN_W, SCREEN_H);
