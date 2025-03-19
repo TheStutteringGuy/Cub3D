@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   iterate_color_map.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 16:13:55 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/19 05:59:21 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/19 15:53:03 by aahlaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	allocate_and_copy_prefix1(t_data *data, int i, int *j)
 {
-	// data->prefix1 = malloc(sizeof(char) * 100);
 	data->prefix1 = bgc_malloc(&data, sizeof(char) * 100, Simple);
 	if (!(data->prefix1))
 		print_malloc_error_message();
@@ -40,7 +39,6 @@ void	allocate_and_copy_rest(t_data *data, int i, int j)
 	int	w;
 
 	w = 0;
-	// data->rest = malloc(sizeof(char) * 100);
 	data->rest = bgc_malloc(&data, sizeof(char) * 100, Array);
 	if (!(data->rest))
 		print_malloc_error_message();
