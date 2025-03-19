@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_vars.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 02:35:06 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/06 16:20:54 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/19 02:24:28 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	init_vars(t_data *data, int *x)
 {
-	data->camera_x = 2.0 * *x / SCREEN_WIDTH - 1;
+	data->camera_x = 2.0 * *x / SCREEN_W - 1;
 	data->raydir_x = data->dir_x + data->plan_x * data->camera_x;
 	data->raydir_y = data->dir_y + data->plan_y * data->camera_x;
 	data->raymap_x = (int)data->player_x;

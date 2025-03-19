@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 00:33:48 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/14 16:37:59 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/19 02:24:43 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,9 @@ int	main(int argc, char **argv)
 	data.mlx = mlx_init();
 	load_textures(&data);
 	get_texture_data(&data);
-	data.mlx_win = mlx_new_window(data.mlx, SCREEN_WIDTH, SCREEN_HEIGHT,
+	data.mlx_win = mlx_new_window(data.mlx, SCREEN_W, SCREEN_H,
 			"Cub3D");
-	data.r_img = mlx_new_image(data.mlx, SCREEN_WIDTH, SCREEN_HEIGHT);
+	data.r_img = mlx_new_image(data.mlx, SCREEN_W, SCREEN_H);
 	data.r_addr = mlx_get_data_addr(data.r_img, &data.bits_per_pixel,
 			&data.size_line, &data.endian);
 	setup_functions(&data);

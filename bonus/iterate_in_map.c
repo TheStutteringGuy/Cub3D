@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   iterate_in_map.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 16:04:31 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/15 01:48:20 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/19 06:03:03 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 void allocate_and_copy_prefix(t_data *data, size_t i)
 {
 	data->j = 0;
-	*data->prefix = malloc(sizeof(char) * 3);
-	if (!(*data->prefix))
+	data->prefix = malloc(sizeof(char) * 3);
+	if (!data->prefix)
 		print_malloc_error_message();
 	while (data->my_map[i][data->j] != ' ' && data->my_map[i][data->j] != '\0')
 	{
-		(*data->prefix)[data->j] = data->my_map[i][data->j];
+		(data->prefix)[data->j] = data->my_map[i][data->j];
 		data->j++;
 	}
-	(*data->prefix)[data->j] = '\0';
+	data->prefix[data->j] = '\0';
 	if (ft_strcmp(*data->prefix, "NO") == 0)
 		data->no_count++;
 	else if (ft_strcmp(*data->prefix, "SO") == 0)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_textures.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 02:45:36 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/15 01:50:57 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/19 02:24:43 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	draw_column(t_data *data, int x)
 	int	y;
 
 	y = 0;
-	while (y < SCREEN_HEIGHT)
+	while (y < SCREEN_H)
 	{
 		if (y < data->drawstart)
 			set_pixels(data, x, y, data->cell_color);

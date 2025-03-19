@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:56:11 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/08 16:11:18 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/19 02:24:43 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ int	handle_mouse_move(int x, int y, t_data *data)
 	double	rotation_angle;
 
 	(void)y;
-	center_x = SCREEN_WIDTH / 2;
+	center_x = SCREEN_W / 2;
 	rotation_speed = ROT_SPEED;
 	rotation_angle = (x - center_x) * rotation_speed;
 	if (fabs(rotation_angle) > 0.001)
 	{
 		rotate_player(data, rotation_angle);
-		mlx_mouse_move(data->mlx, data->mlx_win, center_x, SCREEN_HEIGHT / 2);
+		mlx_mouse_move(data->mlx, data->mlx_win, center_x, SCREEN_H / 2);
 	}
 	return (0);
 }
@@ -51,7 +51,7 @@ int	handle_mouse_move(int x, int y, t_data *data)
 void	init_mouse(t_data *data)
 {
 	mlx_mouse_hide(data->mlx, data->mlx_win);
-	mlx_mouse_move(data->mlx, data->mlx_win, SCREEN_WIDTH / 2, SCREEN_HEIGHT
+	mlx_mouse_move(data->mlx, data->mlx_win, SCREEN_W / 2, SCREEN_H
 		/ 2);
 	mlx_hook(data->mlx_win, 6, 1L << 6, handle_mouse_move, data);
 }

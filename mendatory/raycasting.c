@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 16:16:04 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/14 16:38:42 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/19 02:24:43 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	set_pixels(t_data *data, int x, int y, int color)
 {
 	char	*dest;
 
-	if (x < 0 || x >= SCREEN_WIDTH || y < 0 || y >= SCREEN_HEIGHT)
+	if (x < 0 || x >= SCREEN_W || y < 0 || y >= SCREEN_H)
 		return ;
 	dest = data->r_addr + (y * data->size_line + x * (data->bits_per_pixel
 				/ 8));
@@ -75,7 +75,7 @@ void	raycasting(t_data *data)
 	int	x;
 
 	x = 0;
-	while (x < SCREEN_WIDTH)
+	while (x < SCREEN_W)
 	{
 		init_vars(data, &x);
 		handle_raydir_x(data);
@@ -84,7 +84,7 @@ void	raycasting(t_data *data)
 		init_textures(data);
 		calculate_wall(data);
 		data->step = 1.0 * data->tex_height / data->line_height;
-		data->texpos = (data->drawstart - SCREEN_HEIGHT / 2 + data->line_height
+		data->texpos = (data->drawstart - SCREEN_H / 2 + data->line_height
 				/ 2) * data->step;
 		draw_column(data, x);
 		x++;

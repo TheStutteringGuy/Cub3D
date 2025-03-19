@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 00:40:18 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/15 01:58:42 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/19 05:56:37 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,30 @@
 #  define BUFFER_SIZE 42
 # endif
 
-# define SCREEN_WIDTH 1000
-# define SCREEN_HEIGHT 500
+# define SCREEN_W 1000
+# define SCREEN_H 500
 
 # define MOVE_SPEED 0.01
-
 # define ROT_SPEED 0.012
+
+typedef enum e_type 
+{
+    Simple,
+    Array,
+    List,
+    TwoD_Array,
+	Mlx_Images,
+	Mlx_Window,
+	Mlx_Connection,
+} t_type;
+
+typedef struct s_BGC
+{
+    size_t size;
+    void *ptr;
+    t_type type;
+    struct s_BGC *next;
+} t_BGC;
 
 typedef struct s_path
 {
@@ -46,18 +64,24 @@ typedef struct s_path
 
 typedef struct s_data
 {
+	////
+	t_BGC *bgc;
+	////
 	char	**my_map;
 	char	**my_color;
 	char	**mini_map;
 	char	**start_map;
 	char	**new_map;
+	////
 	char	*line;
-	char	**prefix;
+	char	*prefix;
+	////
 	char	*no_texture;
 	char	*so_texture;
 	char	*we_texture;
 	char	*ea_texture;
-	char *door_texture;
+	char 	*door_texture;
+	////
 	int		no_tex_width;
 	int		no_tex_height;
 	int		so_tex_width;
@@ -66,34 +90,40 @@ typedef struct s_data
 	int		we_tex_height;
 	int		ea_tex_width;
 	int		ea_tex_height;
-	int d_tex_width;
-	int d_tex_height;
+	int 	d_tex_width;
+	int 	d_tex_height;
 	int		tex_width;
 	int		tex_height;
+	////
 	int		prev_mouse_x;
-	char	**texture;
-	char	**prefix1;
-	char	**rest;
+	char	*texture;
+	char	*prefix1;
+	char	*rest;
+	////
 	void	*no_texture_img;
 	void	*so_texture_img;
 	void	*we_texture_img;
 	void	*ea_texture_img;
-	void *d_texture_img;
+	void 	*d_texture_img;
 	int		*no_texture_data;
 	int		*so_texture_data;
 	int		*ea_texture_data;
 	int		*we_texture_data;
-	int *d_texture_data;
+	int 	*d_texture_data;
+	////
 	int		count1;
 	int		count;
 	int		counter;
 	int		color_counter;
 	int		flag;
 	int		len;
+	////
 	t_path	*path;
 	char	*rgb_res;
+	////
 	void	*mlx;
 	void	*mlx_win;
+	////
 	int		floor[3];
 	int		cell[3];
 	int		height;
@@ -101,8 +131,10 @@ typedef struct s_data
 	int		bits_per_pixel;
 	int		size_line;
 	int		endian;
+	////
 	size_t	y;
 	size_t	j;
+	////
 	double	player_x;
 	double	player_y;
 	int		start_x;
@@ -157,10 +189,10 @@ typedef struct s_data
 	int		so_count;
 	int		we_count;
 	int		ea_count;
-	int door_count;
+	int 	door_count;
 	int		f_count;
 	int		c_count;
-	int door;
+	int 	door;
 	//////////////////////
 	bool	move_forward;
 	bool	move_backward;
@@ -169,6 +201,8 @@ typedef struct s_data
 	bool	rotate_left;
 	bool	rotate_right;
 }			t_data;
+
+#include "./TheStutteringGuy/BGC,/BGC.h"
 
 char		*ft_strrchr(const char *s, int c);
 size_t		ft_strlen(const char *s);
@@ -182,6 +216,9 @@ int			ft_atoi(const char *str);
 char		*ft_strcpy(char *dst, const char *src);
 void		*ft_memset(void *b, int c, size_t len);
 char		*get_next_line(int fd);
+
+////////////////////////////////////////////////
+
 void		check_player(t_data *data);
 void		check_path(char *path);
 void		read_lines(char *path, t_data *data);
@@ -272,8 +309,12 @@ void		calculate_map(t_data *data);
 void		alloc_textures(t_data *data);
 void		init_mouse(t_data *data);
 void		init_second(t_data *data);
-void free_door_texture(t_data *data);
-void texture_door_error_message(void);
-void check_door(t_data *data);
+void		free_door_texture(t_data *data);
+void		texture_door_error_message(void);
+void		check_door(t_data *data);
+
+////////////////////////////////////////////////
+
+void		Free_(t_data *data);
 
 #endif

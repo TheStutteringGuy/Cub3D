@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   iterate_color_map.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahmed <ahmed@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 16:13:55 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/09 03:08:14 by ahmed            ###   ########.fr       */
+/*   Updated: 2025/03/19 05:59:21 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,20 @@
 
 void	allocate_and_copy_prefix1(t_data *data, int i, int *j)
 {
-	*data->prefix1 = malloc(sizeof(char) * 100);
-	if (!(*data->prefix1))
+	// data->prefix1 = malloc(sizeof(char) * 100);
+	data->prefix1 = bgc_malloc(&data, sizeof(char) * 100, Simple);
+	if (!(data->prefix1))
 		print_malloc_error_message();
 	*j = 0;
 	while (data->my_color[i][*j] != ' ' && data->my_color[i][*j] != '\0')
 	{
-		(*data->prefix1)[*j] = data->my_color[i][*j];
+		(data->prefix1)[*j] = data->my_color[i][*j];
 		(*j)++;
 	}
-	(*data->prefix1)[*j] = '\0';
-	if (ft_strcmp(*data->prefix1, "F") == 0)
+	(data->prefix1)[*j] = '\0';
+	if (ft_strcmp(data->prefix1, "F") == 0)
 		data->f_count++;
-	else if (ft_strcmp(*data->prefix1, "C") == 0)
+	else if (ft_strcmp(data->prefix1, "C") == 0)
 		data->c_count++;
 	if (data->f_count > 1 || data->c_count > 1)
 		print_incorrect_prefix_error_message();
@@ -39,18 +40,19 @@ void	allocate_and_copy_rest(t_data *data, int i, int j)
 	int	w;
 
 	w = 0;
-	*data->rest = malloc(sizeof(char) * 100);
-	if (!(*data->rest))
+	// data->rest = malloc(sizeof(char) * 100);
+	data->rest = bgc_malloc(&data, sizeof(char) * 100, Array);
+	if (!(data->rest))
 		print_malloc_error_message();
 	while (data->my_color[i][j] != '\0')
 	{
 		while (data->my_color[i][j] == '\t' || data->my_color[i][j] == ' ')
 			j++;
-		(*data->rest)[w] = data->my_color[i][j];
+		(data->rest)[w] = data->my_color[i][j];
 		w++;
 		j++;
 	}
-	(*data->rest)[w] = '\0';
+	(data->rest)[w] = '\0';
 }
 
 void	iterate_color_map(t_data *data, int *i)
