@@ -6,7 +6,7 @@
 /*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 16:04:31 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/19 05:53:49 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/19 06:24:18 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,25 @@ void	process_texture_assignment(t_data *data)
 	data->count = check_for_identifier((data->prefix), data->count);
 	check_texture((data->texture), data);
 	if (ft_strcmp(data->prefix, "NO") == 0)
+	{
 		data->no_texture = ft_strdup(data->texture);
+		bgc_new(&data, data->no_texture, sizeof(data->no_texture), Simple);
+	}
 	else if (ft_strcmp(data->prefix, "SO") == 0)
+	{
 		data->so_texture = ft_strdup(data->texture);
+		bgc_new(&data, data->so_texture, sizeof(data->so_texture), Simple);
+	}
 	else if (ft_strcmp(data->prefix, "WE") == 0)
+	{
 		data->we_texture = ft_strdup(data->texture);
+		bgc_new(&data, data->we_texture, sizeof(data->we_texture), Simple);
+	}
 	else if (ft_strcmp(data->prefix, "EA") == 0)
+	{
 		data->ea_texture = ft_strdup(data->texture);
+		bgc_new(&data, data->ea_texture, sizeof(data->ea_texture), Simple);
+	}
 	else
 		print_incorrect_prefix_error_message();
 }

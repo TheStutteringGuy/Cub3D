@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube_movements.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 14:45:20 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/05 16:25:51 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/19 06:27:45 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 int	press_key(int key, t_data *data)
 {
 	if (key == 65307)
+	{
+		Free_(data);
 		exit(0);
+	}
 	if (key == 119)
 		data->move_forward = true;
 	else if (key == 115)
