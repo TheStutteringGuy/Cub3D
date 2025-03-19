@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 17:49:56 by ahmed             #+#    #+#             */
-/*   Updated: 2025/03/19 05:56:50 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/19 15:51:15 by aahlaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ void	check_no_identifier(t_data *data)
 	size_t	i;
 
 	data->count = 0;
-	// data->prefix = malloc(3 + 1);
 	data->prefix = bgc_malloc(&data, 3 + 1, Simple);
-	// data->texture = malloc(256);
 	data->texture = bgc_malloc(&data, 256, Array);
 	if (!data->texture || !data->prefix)
 	{

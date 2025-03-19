@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   iterate_in_map.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 16:04:31 by aahlaqqa          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2025/03/19 06:24:18 by aibn-ich         ###   ########.fr       */
+=======
+/*   Updated: 2025/03/19 15:54:44 by aahlaqqa         ###   ########.fr       */
+>>>>>>> 4b26a7ef74d79063b3d2e19e0fd9347afdc55f42
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +19,6 @@
 void	allocate_and_copy_prefix(t_data *data, size_t i)
 {
 	data->j = 0;
-	// data->prefix = malloc(sizeof(char) * 3);
 	data->prefix = bgc_malloc(&data, sizeof(char) * 3, Simple);
 	if (!(data->prefix))
 		print_malloc_error_message();
@@ -52,7 +55,6 @@ void	allocate_and_copy_texture(t_data *data, size_t i)
 	while (end > 0 && (data->my_map[i][data->j + end - 1] == ' '
 		|| data->my_map[i][data->j + end - 1] == '\t'))
 		end--;
-	// data->texture = malloc(end + 1);
 	data->texture = bgc_malloc(&data, end + 1, Array);
 	if (!(data->texture))
 		print_malloc_error_message();

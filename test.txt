@@ -1,3 +1,276 @@
 // bits_per_pixel : This indicat how many bits are used to represent each pixel in the image.
 // size_line : This represent the total number of bytes in a single row of pixels in the image.
 // endian : byte order for sortring pixel data : 0 for LSB and 1 for MSB
+
+
+
+
+
+
+
+
+void	check_no_identifier(t_data *data)
+{
+	size_t	i;
+
+	data->count = 0;
+	// data->prefix = malloc(3 + 1);
+	data->prefix = bgc_malloc(&data, 3 + 1, Simple);
+	// data->texture = malloc(256);
+	data->texture = bgc_malloc(&data, 256, Array);
+	if (!data->texture || !data->prefix)
+	{
+		free(data->prefix);
+		free(data->texture);
+		return ;
+	}
+	i = 0;
+	iterate_in_map(&i, data);
+	if (data->count != 4)
+	{
+		printf("Error\n incorrect identifier !");
+		exit(1);
+	}
+}
+
+
+
+void	allocate_and_copy_prefix1(t_data *data, int i, int *j)
+{
+	// data->prefix1 = malloc(sizeof(char) * 100);
+	data->prefix1 = bgc_malloc(&data, sizeof(char) * 100, Simple);
+	if (!(data->prefix1))
+		print_malloc_error_message();
+	*j = 0;
+	while (data->my_color[i][*j] != ' ' && data->my_color[i][*j] != '\0')
+	{
+		(data->prefix1)[*j] = data->my_color[i][*j];
+		(*j)++;
+	}
+	(data->prefix1)[*j] = '\0';
+	if (ft_strcmp(data->prefix1, "F") == 0)
+		data->f_count++;
+	else if (ft_strcmp(data->prefix1, "C") == 0)
+		data->c_count++;
+	if (data->f_count > 1 || data->c_count > 1)
+		print_incorrect_prefix_error_message();
+	if (data->my_color[i][*j] == ' ')
+		(*j)++;
+}
+
+
+void	allocate_and_copy_rest(t_data *data, int i, int j)
+{
+	int	w;
+
+	w = 0;
+	// data->rest = malloc(sizeof(char) * 100);
+	data->rest = bgc_malloc(&data, sizeof(char) * 100, Array);
+	if (!(data->rest))
+		print_malloc_error_message();
+	while (data->my_color[i][j] != '\0')
+	{
+		while (data->my_color[i][j] == '\t' || data->my_color[i][j] == ' ')
+			j++;
+		(data->rest)[w] = data->my_color[i][j];
+		w++;
+		j++;
+	}
+	(data->rest)[w] = '\0';
+}
+
+
+
+
+void	allocate_and_copy_prefix(t_data *data, size_t i)
+{
+	data->j = 0;
+	// data->prefix = malloc(sizeof(char) * 3);
+	data->prefix = bgc_malloc(&data, sizeof(char) * 3, Simple);
+	if (!(data->prefix))
+		print_malloc_error_message();
+	while (data->my_map[i][data->j] != ' ' && data->my_map[i][data->j] != '\0')
+	{
+		(data->prefix)[data->j] = data->my_map[i][data->j];
+		data->j++;
+	}
+	(data->prefix)[data->j] = '\0';
+	if (ft_strcmp(data->prefix, "NO") == 0)
+		data->no_count++;
+	else if (ft_strcmp(data->prefix, "SO") == 0)
+		data->so_count++;
+	else if (ft_strcmp(data->prefix, "WE") == 0)
+		data->we_count++;
+	else if (ft_strcmp(data->prefix, "EA") == 0)
+		data->ea_count++;
+	if (data->no_count > 1 || data->so_count > 1 || data->we_count > 1
+		|| data->ea_count > 1)
+	{
+		print_incorrect_prefix_error_message();
+	}
+	while (data->my_map[i][data->j] == ' ')
+		data->j++;
+}
+
+void	allocate_and_copy_texture(t_data *data, size_t i)
+{
+	size_t	len;
+	size_t	end;
+
+	len = ft_strlen(data->my_map[i] + data->j);
+	end = len;
+	while (end > 0 && (data->my_map[i][data->j + end - 1] == ' '
+			|| data->my_map[i][data->j + end - 1] == '\t'))
+		end--;
+	// data->texture = malloc(end + 1);
+	data->texture = bgc_malloc(&data, end + 1, Array);
+	if (!(data->texture))
+		print_malloc_error_message();
+	data->y = 0;
+	while (data->y < end)
+	{
+		(data->texture)[data->y] = data->my_map[i][data->j + data->y];
+		data->y++;
+	}
+	(data->texture)[data->y] = '\0';
+	data->j += len;
+	if (data->y == 0)
+		print_incorrect_texture_error_message();
+}
+
+
+
+void	check_colors(t_data *data)
+{
+	int	i;
+
+	data->count1 = 0;
+	data->len = 0;
+	// data->prefix1 = malloc(2 + 1);
+	data->prefix1 = bgc_malloc(&data, 2 + 1, Simple);
+	// data->rest = malloc(256);
+	data->rest = bgc_malloc(&data, 256, Array);
+	if (!data->rest || !data->prefix1)
+		return ;
+	i = 0;
+	iterate_color_map(data, &i);
+	if (data->count1 != 2)
+	{
+		printf("Error\n incorrect identifier !");
+		exit(1);
+	}
+	if (data->len != 4)
+	{
+		printf("Error\n missing or adding ',' !");
+		exit(1);
+	}
+}
+
+
+
+
+
+void	function_call(t_data *data, t_path *path)
+{
+	(void)path;
+	check_all_in_map(data);
+	check_no_identifier(data);
+	check_colors(data);
+	check_mini_map(data);
+}
+
+// void	init_first(t_data *data)
+// {
+// 	data->floor[0] = 0;
+// 	data->floor[1] = 0;
+// 	data->floor[2] = 0;
+// 	data->cell[0] = 0;
+// 	data->cell[1] = 0;
+// 	data->cell[2] = 0;
+// 	data->flag = 0;
+// 	data->counter = 0;
+// 	data->color_counter = 0;
+// 	data->hit = 0;
+// 	data->side = 0;
+// 	data->line_height = 0;
+// 	data->drawstart = 0;
+// 	data->drawend = 0;
+// 	data->wallx = 0;
+// 	data->txt_x = 0;
+// 	data->txt_y = 0;
+// 	data->tex_height = 0;
+// 	data->tex_width = 0;
+// 	data->map_width = 0;
+// 	data->map_height = 0;
+// 	data->player_x = 0;
+// 	data->player_y = 0;
+// 	init_second(data);
+// }
+
+// void	free_data(t_data *data)
+// {
+// 	free(data->ea_texture);
+// 	free(data->we_texture);
+// 	free(data->no_texture);
+// 	free(data->so_texture);
+// }
+
+void	setup_functions(t_data *data)
+{
+	init_data(data);
+	calculate_map(data);
+	init_dir_and_plan(data);
+	raycasting(data);
+	setup_hook(data);
+}
+
+int	main(int argc, char **argv)
+{
+	t_data	data;
+	t_path	path;
+
+	// init_first(&data);
+	pars_error(argc);
+	check_path(argv[1]);
+	ft_memset(&data, 0, sizeof(t_data));
+	// alloc_textures(&data);
+	read_lines(argv[1], &data);
+	function_call(&data, &path);
+	data.mlx = mlx_init();
+	load_textures(&data);
+	get_texture_data(&data);
+	////////
+	// Free_(&data);
+	// exit(0);
+	////////
+	data.mlx_win = mlx_new_window(data.mlx, SCREEN_W, SCREEN_H, "Cub3D");
+	data.r_img = mlx_new_image(data.mlx, SCREEN_W, SCREEN_H);
+	data.r_addr = mlx_get_data_addr(data.r_img, &data.bits_per_pixel,
+			&data.size_line, &data.endian);
+	setup_functions(&data);
+	mlx_hook(data.mlx_win, 2, (1L << 0), press_key, &data);
+	mlx_hook(data.mlx_win, 3, (1L << 1), release_key, &data);
+	mlx_hook(data.mlx_win, 17, 0, close_win, &data);
+	mlx_loop_hook(data.mlx, game_loop, &data);
+	mlx_loop(data.mlx);
+	return (0);
+}
+
+
+void	Free_(t_data *data)
+{
+	// bgc_free(data);
+	if (data->no_texture_img)
+		mlx_destroy_image(data->mlx, data->no_texture_img);
+	if (data->so_texture_img)
+		mlx_destroy_image(data->mlx, data->so_texture_img);
+	if (data->we_texture_img)
+		mlx_destroy_image(data->mlx, data->we_texture_img);
+	if (data->ea_texture_img)
+		mlx_destroy_image(data->mlx, data->ea_texture_img);
+	// mlx_destroy_image(data->mlx, data->r_img);
+	// mlx_destroy_window(data->mlx, data->mlx_win);
+	mlx_destroy_display(data->mlx);
+	free(data->mlx);
+	data->mlx = NULL;
+}

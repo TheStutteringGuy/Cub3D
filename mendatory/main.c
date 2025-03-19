@@ -6,7 +6,7 @@
 /*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 00:33:48 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/19 06:26:57 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/19 23:34:48 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,42 +20,6 @@ void	function_call(t_data *data, t_path *path)
 	check_colors(data);
 	check_mini_map(data);
 }
-
-// void	init_first(t_data *data)
-// {
-// 	data->floor[0] = 0;
-// 	data->floor[1] = 0;
-// 	data->floor[2] = 0;
-// 	data->cell[0] = 0;
-// 	data->cell[1] = 0;
-// 	data->cell[2] = 0;
-// 	data->flag = 0;
-// 	data->counter = 0;
-// 	data->color_counter = 0;
-// 	data->hit = 0;
-// 	data->side = 0;
-// 	data->line_height = 0;
-// 	data->drawstart = 0;
-// 	data->drawend = 0;
-// 	data->wallx = 0;
-// 	data->txt_x = 0;
-// 	data->txt_y = 0;
-// 	data->tex_height = 0;
-// 	data->tex_width = 0;
-// 	data->map_width = 0;
-// 	data->map_height = 0;
-// 	data->player_x = 0;
-// 	data->player_y = 0;
-// 	init_second(data);
-// }
-
-// void	free_data(t_data *data)
-// {
-// 	free(data->ea_texture);
-// 	free(data->we_texture);
-// 	free(data->no_texture);
-// 	free(data->so_texture);
-// }
 
 void	setup_functions(t_data *data)
 {
@@ -71,11 +35,9 @@ int	main(int argc, char **argv)
 	t_data	data;
 	t_path	path;
 
-	// init_first(&data);
 	pars_error(argc);
 	check_path(argv[1]);
 	ft_memset(&data, 0, sizeof(t_data));
-	// alloc_textures(&data);
 	read_lines(argv[1], &data);
 	function_call(&data, &path);
 	data.mlx = mlx_init();
