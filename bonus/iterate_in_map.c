@@ -6,7 +6,7 @@
 /*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 16:04:31 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/19 06:03:03 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/20 03:40:50 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void allocate_and_copy_prefix(t_data *data, size_t i)
 {
 	data->j = 0;
-	data->prefix = malloc(sizeof(char) * 3);
+	data->prefix = bgc_malloc(&data, sizeof(char) * 3, Simple);
 	if (!data->prefix)
 		print_malloc_error_message();
 	while (data->my_map[i][data->j] != ' ' && data->my_map[i][data->j] != '\0')
@@ -24,15 +24,15 @@ void allocate_and_copy_prefix(t_data *data, size_t i)
 		data->j++;
 	}
 	data->prefix[data->j] = '\0';
-	if (ft_strcmp(*data->prefix, "NO") == 0)
+	if (ft_strcmp(data->prefix, "NO") == 0)
 		data->no_count++;
-	else if (ft_strcmp(*data->prefix, "SO") == 0)
+	else if (ft_strcmp(data->prefix, "SO") == 0)
 		data->so_count++;
-	else if (ft_strcmp(*data->prefix, "WE") == 0)
+	else if (ft_strcmp(data->prefix, "WE") == 0)
 		data->we_count++;
-	else if (ft_strcmp(*data->prefix, "EA") == 0)
+	else if (ft_strcmp(data->prefix, "EA") == 0)
 		data->ea_count++;
-	else if (ft_strcmp(*data->prefix, "D") == 0)
+	else if (ft_strcmp(data->prefix, "D") == 0)
 		data->door_count++;
 	if (data->no_count > 1 || data->so_count > 1 || data->we_count > 1 || data->ea_count > 1 || data->door_count > 1)
 		print_incorrect_prefix_error_message();
@@ -49,16 +49,16 @@ void allocate_and_copy_texture(t_data *data, size_t i)
 	end = len;
 	while (end > 0 && (data->my_map[i][data->j + end - 1] == ' ' || data->my_map[i][data->j + end - 1] == '\t'))
 		end--;
-	*data->texture = malloc(end + 1);
-	if (!(*data->texture))
+	data->texture = bgc_malloc(&data, end + 1, Array);
+	if (!(data->texture))
 		print_malloc_error_message();
 	data->y = 0;
 	while (data->y < end)
 	{
-		(*data->texture)[data->y] = data->my_map[i][data->j + data->y];
+		(data->texture)[data->y] = data->my_map[i][data->j + data->y];
 		data->y++;
 	}
-	(*data->texture)[data->y] = '\0';
+	(data->texture)[data->y] = '\0';
 	data->j += len;
 	if (data->y == 0)
 		print_incorrect_texture_error_message();
@@ -66,18 +66,33 @@ void allocate_and_copy_texture(t_data *data, size_t i)
 
 void process_texture_assignment(t_data *data)
 {
-	data->count = check_for_identifier((*data->prefix), data->count);
-	check_texture(*(data->texture), data);
-	if (ft_strcmp(*data->prefix, "NO") == 0)
-		data->no_texture = ft_strdup(*data->texture);
-	else if (ft_strcmp(*data->prefix, "SO") == 0)
-		data->so_texture = ft_strdup(*data->texture);
-	else if (ft_strcmp(*data->prefix, "WE") == 0)
-		data->we_texture = ft_strdup(*data->texture);
-	else if (ft_strcmp(*data->prefix, "EA") == 0)
-		data->ea_texture = ft_strdup(*data->texture);
-	else if (ft_strcmp(*data->prefix, "D") == 0)
-		data->door_texture = ft_strdup(*data->texture);
+	data->count = check_for_identifier((data->prefix), data->count);
+	check_texture(data->texture, data);
+	if (ft_strcmp(data->prefix, "NO") == 0)
+	{
+		data->no_texture = ft_strdup(data->texture);
+		bgc_new(&data, data->no_texture, sizeof(data->no_texture), Simple);
+	}
+	else if (ft_strcmp(data->prefix, "SO") == 0)
+	{
+		data->so_texture = ft_strdup(data->texture);
+		bgc_new(&data, data->so_texture, sizeof(data->so_texture), Simple);
+	}
+	else if (ft_strcmp(data->prefix, "WE") == 0)
+	{
+		data->we_texture = ft_strdup(data->texture);
+		bgc_new(&data, data->we_texture, sizeof(data->we_texture), Simple);
+	}
+	else if (ft_strcmp(data->prefix, "EA") == 0)
+	{
+		data->ea_texture = ft_strdup(data->texture);
+		bgc_new(&data, data->ea_texture, sizeof(data->ea_texture), Simple);	
+	}
+	else if (ft_strcmp(data->prefix, "D") == 0)
+	{
+		data->door_texture = ft_strdup(data->texture);
+		bgc_new(&data, data->ea_texture, sizeof(data->ea_texture), Simple);
+	}
 	else
 		print_incorrect_prefix_error_message();
 }

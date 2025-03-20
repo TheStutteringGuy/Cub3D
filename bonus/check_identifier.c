@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_identifier.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 17:24:59 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/14 15:09:56 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/20 03:33:36 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	check_texture(char *str, t_data *data)
 	if (!extention)
 		return ;
 	if (ft_strcmp(extention, ".xpm") == 0)
-		(*data->texture) = str;
+		(data->texture) = str;
 	else
 	{
 		printf("Error\n incorrect texture !");

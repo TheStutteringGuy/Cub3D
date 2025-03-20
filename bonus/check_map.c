@@ -6,7 +6,7 @@
 /*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 14:40:09 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/19 06:04:56 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/20 03:20:24 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,7 @@ void	read_lines(char *path, t_data *data)
 	}
 	lines = start_reading(fd, line);
 	data->start_map = ft_split(lines, '\n');
+	free(lines);
 	lines = NULL;
 	split_map(data);
 	handle_spaces(data);
@@ -118,6 +119,5 @@ void	read_lines(char *path, t_data *data)
 	assigne_colors(data);
 	assigne_texture(data);
 	caller_function(data);
-	free(lines);
 	close(fd);
 }

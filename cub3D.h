@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 00:40:18 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/19 16:01:14 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/19 23:54:11 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,7 +202,11 @@ typedef struct s_data
 	bool	rotate_right;
 }			t_data;
 
-#include "./TheStutteringGuy/BGC,/BGC.h"
+// #include "./TheStutteringGuy/BGC,/BGC.h"
+void bgc_new(t_data **data, void *ptr, size_t size, t_type type);
+void *bgc_malloc(t_data **data ,size_t size, t_type type);
+void bgc_free(t_data *ptr);
+///////////////////////////////////////////
 
 char		*ft_strrchr(const char *s, int c);
 size_t		ft_strlen(const char *s);
@@ -315,6 +319,6 @@ void		check_door(t_data *data);
 
 ////////////////////////////////////////////////
 
-void		free_img(t_data *data);
+void		free_(t_data *data);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 01:38:03 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/15 01:57:55 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/20 03:39:09 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ void	check_colors(t_data *data)
 
 	data->count1 = 0;
 	data->len = 0;
-	data->prefix1 = malloc(2 + 1);
-	data->rest = malloc(256);
+	data->prefix1 = bgc_malloc(&data, 2 + 1, Simple);
+	data->rest = bgc_malloc(&data, 256, Array);
 	if (!data->rest || !data->prefix1)
 		return ;
 	i = 0;

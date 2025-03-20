@@ -6,11 +6,11 @@
 /*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 02:45:26 by aibn-ich          #+#    #+#             */
-/*   Updated: 2025/03/19 06:22:19 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/20 04:00:36 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./BGC.h"
+#include "../../cub3D.h"
 
 static void bgc_add_back(t_data **data, t_BGC *new)
 {
@@ -53,7 +53,6 @@ void *bgc_malloc(t_data **data ,size_t size, t_type type)
 
 void bgc_free(t_data *ptr)
 {
-    // (void)ptr;
     t_BGC *iterate;
     t_BGC *temp;
 

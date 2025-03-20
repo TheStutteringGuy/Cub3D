@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_handles.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 22:08:07 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/02/06 15:46:48 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/20 00:00:19 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int	close_win(t_data *data)
 {
-	(void)data;
+	free_(data);
 	exit(0);
 }

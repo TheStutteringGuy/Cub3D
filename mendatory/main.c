@@ -6,7 +6,7 @@
 /*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 00:33:48 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/19 23:34:48 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/20 03:45:30 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,6 @@ int	main(int argc, char **argv)
 	data.mlx = mlx_init();
 	load_textures(&data);
 	get_texture_data(&data);
-	////////
-	// Free_(&data);
-	// exit(0);
-	////////
 	data.mlx_win = mlx_new_window(data.mlx, SCREEN_W, SCREEN_H, "Cub3D");
 	data.r_img = mlx_new_image(data.mlx, SCREEN_W, SCREEN_H);
 	data.r_addr = mlx_get_data_addr(data.r_img, &data.bits_per_pixel,

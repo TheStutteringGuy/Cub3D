@@ -6,7 +6,7 @@
 /*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 22:08:07 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/19 06:27:31 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/19 23:49:00 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int	close_win(t_data *data)
 {
-	Free_(data);
+	free_(data);
 	exit(0);
 }

@@ -6,7 +6,7 @@
 /*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 14:45:20 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/19 06:27:45 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/19 23:48:27 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	press_key(int key, t_data *data)
 {
 	if (key == 65307)
 	{
-		Free_(data);
+		free_(data);
 		exit(0);
 	}
 	if (key == 119)
