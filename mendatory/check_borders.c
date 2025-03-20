@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_borders.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahmed <ahmed@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 00:00:08 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/09 02:08:41 by ahmed            ###   ########.fr       */
+/*   Updated: 2025/03/20 15:27:54 by aahlaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,15 @@ void	check_right_border(t_data *data)
 	while (data->mini_map[j])
 	{
 		len = ft_strlen(data->mini_map[j]);
-		if (data->mini_map[j][len - 1] != '1')
+		while (len > 0 && (data->mini_map[j][len - 1] == 32
+			|| data->mini_map[j][len - 1] == '\t'))
+			len--;
+		if (len > 0 && data->mini_map[j][len - 1] != '1')
 		{
 			printf("Error\nNo border !");
 			exit(1);
 		}
 		j++;
-		len = 0;
 	}
 }
 

@@ -36,7 +36,7 @@ void	free_texture_three(t_data *data)
 	exit(1);
 }
 
-void free_door_texture(t_data *data)
+void	free_door_texture(t_data *data)
 {
 	printf("Error\n Failed to load Door texture : %s\n", data->door_texture);
 	mlx_destroy_image(data->mlx, data->no_texture_img);

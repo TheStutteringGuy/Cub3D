@@ -37,7 +37,7 @@
 //     va_list args;
 //     va_start(args, n);
 //     int index;
-    
+
 //     index = 0;
 //     while (index < n)
 //     {
@@ -52,11 +52,11 @@
 // int main()
 // {
 //     int arr[3][4];
-    
+
 //     printf("%d\n", sizeof(arr));
 //     Init_With_0(1, arr, sizeof(arr));
 //     for (int i = 0; i < 3; ++i)
 //         for (int j = 0; j < 4; ++j)
 //             printf("%d\n", arr[i][j]);
-//     return 0;
+//     return (0);
 // }

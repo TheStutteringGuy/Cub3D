@@ -29,4 +29,3 @@ char	*ft_strrchr(const char *s, int c)
 		return ((char *)s);
 	return (NULL);
 }
-

@@ -3,52 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 00:33:48 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/20 03:45:48 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/20 15:23:46 by aahlaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3D.h"
-
-// void	init_first(t_data *data)
-// {
-// 	data->floor[0] = 0;
-// 	data->floor[1] = 0;
-// 	data->floor[2] = 0;
-// 	data->cell[0] = 0;
-// 	data->cell[1] = 0;
-// 	data->cell[2] = 0;
-// 	data->flag = 0;
-// 	data->counter = 0;
-// 	data->color_counter = 0;
-// 	data->hit = 0;
-// 	data->side = 0;
-// 	data->line_height = 0;
-// 	data->drawstart = 0;
-// 	data->drawend = 0;
-// 	data->wallx = 0;
-// 	data->txt_x = 0;
-// 	data->txt_y = 0;
-// 	data->tex_height = 0;
-// 	data->tex_width = 0;
-// 	data->map_width = 0;
-// 	data->map_height = 0;
-// 	data->player_x = 0;
-// 	data->player_y = 0;
-// 	data->door = 0;
-// 	init_second(data);
-// }
-
-// void	free_data(t_data *data)
-// {
-// 	free(data->ea_texture);
-// 	free(data->we_texture);
-// 	free(data->no_texture);
-// 	free(data->so_texture);
-// 	free(data->door_texture);
-// }
 
 void	function_call(t_data *data, t_path *path)
 {

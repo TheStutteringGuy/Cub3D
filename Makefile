@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+         #
+#    By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 00:08:49 by aahlaqqa          #+#    #+#              #
-#    Updated: 2025/03/20 03:55:47 by aibn-ich         ###   ########.fr        #
+#    Updated: 2025/03/20 15:49:57 by aahlaqqa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,8 @@ bonus/errors.c bonus/check_map1.c bonus/assigne.c bonus/textures.c \
 bonus/init_dirs_and_plans.c bonus/init_vars.c bonus/init_textures.c \
 bonus/calculate_wall.c bonus/iterate_in_map.c bonus/iterate_color_map.c \
 bonus/handle_moves.c bonus/rotate.c bonus/free_textures.c \
-bonus/texture_errors.c bonus/alloc_texture.c bonus/init.c bonus/mouse.c bonus/z_Free.c
+bonus/texture_errors.c bonus/alloc_texture.c bonus/init.c bonus/mouse.c bonus/z_Free.c \
+bonus/copy_and_free.c bonus/init_texture1.c
 
 EXTRA_SRCS = ./TheStutteringGuy/BGC,/BGC.c
 

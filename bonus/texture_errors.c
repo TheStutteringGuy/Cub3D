@@ -36,7 +36,7 @@ void	texture_north_error_message(void)
 	exit(1);
 }
 
-void texture_door_error_message(void)
+void	texture_door_error_message(void)
 {
 	printf("Error\n Failed to get data addres for Door texture.\n");
 	exit(1);

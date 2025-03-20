@@ -46,12 +46,11 @@ void	check_data(t_data *data)
 	check_rgb_cell_range(data);
 }
 
-
-void check_door(t_data *data)
+void	check_door(t_data *data)
 {
-	int i;
-	int j;
-	int d;
+	int	i;
+	int	j;
+	int	d;
 
 	i = 0;
 	d = 0;

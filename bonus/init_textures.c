@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_textures.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 02:45:36 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/19 02:24:43 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/20 15:48:56 by aahlaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,35 +16,17 @@ void	init_textures(t_data *data)
 {
 	if (data->door == 1)
 	{
-		data->r_texture = data->d_texture_data;
-		data->tex_width = data->d_tex_width;
-		data->tex_height = data->d_tex_height;
-		return;
+		add_texture_door(data);
+		return ;
 	}
 	if (data->side == 0 && data->raydir_x > 0)
-	{
-		data->r_texture = data->ea_texture_data;
-		data->tex_width = data->ea_tex_width;
-		data->tex_height = data->ea_tex_height;
-	}
+		add_texture_ea(data);
 	else if (data->side == 0 && data->raydir_x < 0)
-	{
-		data->r_texture = data->we_texture_data;
-		data->tex_width = data->we_tex_width;
-		data->tex_height = data->we_tex_height;
-	}
+		add_texture_we(data);
 	else if (data->side == 1 && data->raydir_y > 0)
-	{
-		data->r_texture = data->so_texture_data;
-		data->tex_width = data->so_tex_width;
-		data->tex_height = data->so_tex_height;
-	}
+		add_texture_so(data);
 	else if (data->side == 1 && data->raydir_y < 0)
-	{
-		data->r_texture = data->no_texture_data;
-		data->tex_width = data->no_tex_width;
-		data->tex_height = data->no_tex_height;
-	}
+		add_texture_no(data);
 }
 
 void	draw_column(t_data *data, int x)

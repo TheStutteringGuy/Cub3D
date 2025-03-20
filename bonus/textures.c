@@ -33,7 +33,8 @@ void	load_textures(t_data *data)
 			&data->ea_tex_width, &data->ea_tex_height);
 	if (!data->ea_texture_img)
 		free_texture_three(data);
-	data->d_texture_img = mlx_xpm_file_to_image(data->mlx, data->door_texture, &data->d_tex_width, &data->d_tex_height);
+	data->d_texture_img = mlx_xpm_file_to_image(data->mlx, data->door_texture,
+			&data->d_tex_width, &data->d_tex_height);
 	if (!data->d_texture_img)
 		free_door_texture(data);
 }
@@ -56,7 +57,8 @@ void	get_texture_data(t_data *data)
 			&data->bits_per_pixel, &data->size_line, &data->endian);
 	if (!data->ea_texture_data)
 		texture_east_error_message();
-	data->d_texture_data = (int *)mlx_get_data_addr(data->d_texture_img, &data->bits_per_pixel, &data->size_line, &data->endian);
+	data->d_texture_data = (int *)mlx_get_data_addr(data->d_texture_img,
+			&data->bits_per_pixel, &data->size_line, &data->endian);
 	if (!data->d_texture_data)
 		texture_door_error_message();
 }

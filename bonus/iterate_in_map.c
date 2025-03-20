@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   iterate_in_map.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 16:04:31 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/20 03:40:50 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/20 15:43:01 by aahlaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3D.h"
 
-void allocate_and_copy_prefix(t_data *data, size_t i)
+void	allocate_and_copy_prefix(t_data *data, size_t i)
 {
 	data->j = 0;
 	data->prefix = bgc_malloc(&data, sizeof(char) * 3, Simple);
@@ -34,20 +34,22 @@ void allocate_and_copy_prefix(t_data *data, size_t i)
 		data->ea_count++;
 	else if (ft_strcmp(data->prefix, "D") == 0)
 		data->door_count++;
-	if (data->no_count > 1 || data->so_count > 1 || data->we_count > 1 || data->ea_count > 1 || data->door_count > 1)
+	if (data->no_count > 1 || data->so_count > 1 || data->we_count > 1
+		|| data->ea_count > 1 || data->door_count > 1)
 		print_incorrect_prefix_error_message();
 	while (data->my_map[i][data->j] == ' ')
 		data->j++;
 }
 
-void allocate_and_copy_texture(t_data *data, size_t i)
+void	allocate_and_copy_texture(t_data *data, size_t i)
 {
-	size_t len;
-	size_t end;
+	size_t	len;
+	size_t	end;
 
 	len = ft_strlen(data->my_map[i] + data->j);
 	end = len;
-	while (end > 0 && (data->my_map[i][data->j + end - 1] == ' ' || data->my_map[i][data->j + end - 1] == '\t'))
+	while (end > 0 && (data->my_map[i][data->j + end - 1] == ' '
+		|| data->my_map[i][data->j + end - 1] == '\t'))
 		end--;
 	data->texture = bgc_malloc(&data, end + 1, Array);
 	if (!(data->texture))
@@ -64,40 +66,25 @@ void allocate_and_copy_texture(t_data *data, size_t i)
 		print_incorrect_texture_error_message();
 }
 
-void process_texture_assignment(t_data *data)
+void	process_texture_assignment(t_data *data)
 {
 	data->count = check_for_identifier((data->prefix), data->count);
 	check_texture(data->texture, data);
 	if (ft_strcmp(data->prefix, "NO") == 0)
-	{
-		data->no_texture = ft_strdup(data->texture);
-		bgc_new(&data, data->no_texture, sizeof(data->no_texture), Simple);
-	}
+		copy_and_free_no(data);
 	else if (ft_strcmp(data->prefix, "SO") == 0)
-	{
-		data->so_texture = ft_strdup(data->texture);
-		bgc_new(&data, data->so_texture, sizeof(data->so_texture), Simple);
-	}
+		copy_and_free_so(data);
 	else if (ft_strcmp(data->prefix, "WE") == 0)
-	{
-		data->we_texture = ft_strdup(data->texture);
-		bgc_new(&data, data->we_texture, sizeof(data->we_texture), Simple);
-	}
+		copy_and_free_we(data);
 	else if (ft_strcmp(data->prefix, "EA") == 0)
-	{
-		data->ea_texture = ft_strdup(data->texture);
-		bgc_new(&data, data->ea_texture, sizeof(data->ea_texture), Simple);	
-	}
+		copy_and_free_ea(data);
 	else if (ft_strcmp(data->prefix, "D") == 0)
-	{
-		data->door_texture = ft_strdup(data->texture);
-		bgc_new(&data, data->ea_texture, sizeof(data->ea_texture), Simple);
-	}
+		copy_and_free_door(data);
 	else
 		print_incorrect_prefix_error_message();
 }
 
-void iterate_in_map(size_t *i, t_data *data)
+void	iterate_in_map(size_t *i, t_data *data)
 {
 	while (*i < 5)
 	{

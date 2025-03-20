@@ -130,14 +130,14 @@ char	*get_next_line(int fd)
 	str[fd] = remain_line(str[fd]);
 	return (line);
 }
-int main()
+int	main(void)
 {
 	int i = 0;
 	int fd1 = open("file1.txt", O_RDONLY);
 	int fd2 = open("file2.txt", O_RDONLY);
 	int fd3 = open("file3.txt", O_RDONLY);
 
-	while(i++ < 4)
+	while (i++ < 4)
 	{
 		char *s1 = get_next_line(fd1);
 		char *s2 = get_next_line(fd2);
