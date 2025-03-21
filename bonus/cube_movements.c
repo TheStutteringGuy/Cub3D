@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube_movements.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 14:45:20 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/20 00:00:49 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/21 16:19:10 by aahlaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	press_key(int key, t_data *data)
 		data->rotate_left = true;
 	else if (key == 65363)
 		data->rotate_right = true;
+	else if (key == 32)
+		data->move_door = true;
 	return (0);
 }
 
@@ -48,6 +50,8 @@ int	release_key(int key, t_data *data)
 		data->rotate_left = false;
 	else if (key == 65363)
 		data->rotate_right = false;
+	else if (key == 32)
+		data->move_door = false;
 	return (0);
 }
 
@@ -65,6 +69,8 @@ void	move_player(t_data *data)
 		rotate_left(data);
 	if (data->rotate_right)
 		rotate_right(data);
+	if (data->move_door)
+		start_interaction(data);
 }
 
 int	game_loop(t_data *data)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 00:40:18 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/21 08:43:38 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/21 16:17:28 by aahlaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -200,6 +200,19 @@ typedef struct s_data
 	bool			move_right;
 	bool			rotate_left;
 	bool			rotate_right;
+	bool **door_state;
+	bool door_animation;
+	float timer;
+	int door_x;
+	int door_y;
+	float distance;
+	int check_x;
+	int check_y;
+	int player_map_x;
+	int player_map_y;
+	int next_x;
+	int next_y;
+	bool move_door;
 }					t_data;
 
 // #include "./TheStutteringGuy/BGC,/BGC.h"
@@ -327,6 +340,11 @@ void				add_texture_ea(t_data *data);
 void				add_texture_we(t_data *data);
 void				add_texture_so(t_data *data);
 void				add_texture_no(t_data *data);
+void init_door_state(t_data *data);
+void free_door_state(t_data *data);
+int is_locking_at_door(t_data *data);
+void start_interaction(t_data *data);
+void update_doors(t_data *data, float door_timer);
 
 ////////////////////////////////////////////////
 
