@@ -6,7 +6,7 @@
 /*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 14:47:38 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/21 15:59:27 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/21 23:35:55 by aahlaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@ void init_door_state(t_data *data)
     int i;
 
     i = 0;
-    printf("%d\n", data->map_height);
-    printf("%d\n", data->map_width);
-    exit(1);
     data->door_state = malloc(sizeof(bool *) * data->map_width);
     if (!data->door_state)
     {
@@ -28,13 +25,13 @@ void init_door_state(t_data *data)
     }
     while (i < data->map_width)
     {
-        data->door_state[i] = malloc(sizeof(bool) * data->height);
+        data->door_state[i] = malloc(sizeof(bool) * data->map_height);
         if (!data->door_state[i])
         {
             printf("Error while allocating memory !!\n");
             exit(1);
         }
-        ft_memset(data->door_state[i],0, sizeof(bool) * data->map_height);
+        ft_memset(data->door_state[i], 0, sizeof(bool) * data->map_height);
         i++;
     }
     data->door_animation = false;
@@ -50,7 +47,7 @@ void free_door_state(t_data *data)
     i = 0;
     if (data->door_state)
     {
-        while (i < data->width)
+        while (i < data->map_width)
         {
             if (data->door_state[i])
                 free(data->door_state[i]);

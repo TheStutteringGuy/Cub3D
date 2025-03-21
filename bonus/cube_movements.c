@@ -6,7 +6,7 @@
 /*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 14:45:20 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/21 16:19:10 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/21 17:07:42 by aahlaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,16 @@ void	move_player(t_data *data)
 int	game_loop(t_data *data)
 {
 	static int	first_frame = 1;
-
+	float		door_timer;
+	
+	door_timer = 0.016;
 	if (first_frame)
 	{
 		raycasting(data);
 		first_frame = 0;
 		return (0);
 	}
+	update_doors(data, door_timer);
 	if (data->move_backward || data->move_forward || data->move_left
 		|| data->move_right || data->rotate_left || data->rotate_right)
 	{
@@ -100,4 +103,5 @@ void	setup_hook(t_data *data)
 	data->move_right = false;
 	data->rotate_left = false;
 	data->rotate_right = false;
+	data->move_door = false;
 }

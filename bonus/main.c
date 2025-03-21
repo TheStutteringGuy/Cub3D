@@ -6,7 +6,7 @@
 /*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 00:33:48 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/21 15:33:08 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/21 23:32:06 by aahlaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int	main(int argc, char **argv)
 	data.r_addr = mlx_get_data_addr(data.r_img, &data.bits_per_pixel,
 			&data.size_line, &data.endian);
 	setup_functions(&data);
+	init_door_state(&data);
 	mlx_hook(data.mlx_win, 2, (1L << 0), press_key, &data);
 	mlx_hook(data.mlx_win, 3, (1L << 1), release_key, &data);
 	mlx_hook(data.mlx_win, 17, 0, close_win, &data);
