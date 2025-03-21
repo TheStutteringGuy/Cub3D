@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   copy_and_free.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 15:30:56 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/20 15:42:35 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/21 08:01:56 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,5 @@ void	copy_and_free_ea(t_data *data)
 void	copy_and_free_door(t_data *data)
 {
 	data->door_texture = ft_strdup(data->texture);
-	bgc_new(&data, data->ea_texture, sizeof(data->ea_texture), Simple);
+	bgc_new(&data, data->door_texture, sizeof(data->door_texture), Simple);
 }

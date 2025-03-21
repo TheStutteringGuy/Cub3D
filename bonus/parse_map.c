@@ -6,7 +6,7 @@
 /*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 01:38:03 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/20 03:39:09 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/21 08:21:33 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	check_player(t_data *data)
 	if (p != 1)
 	{
 		printf("Error\n One Player Nedded\n");
+		free_(data);
 		exit(1);
 	}
 }
@@ -64,11 +65,13 @@ void	check_colors(t_data *data)
 	if (data->count1 != 2)
 	{
 		printf("Error\n incorrect identifier !");
+		free_(data);
 		exit(1);
 	}
 	if (data->len != 4)
 	{
 		printf("Error\n missing or adding ',' !");
+		free_(data);
 		exit(1);
 	}
 }
@@ -89,6 +92,7 @@ void	check_map(t_data *data)
 				if (data->mini_map[i][j + 1] == '0')
 				{
 					printf("Error\n a space is found !");
+					free_(data);
 					exit(1);
 				}
 			}

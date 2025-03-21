@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map1.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 16:29:25 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/15 01:46:49 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/21 08:45:22 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,16 @@ void	copy_map_section(char **dest, char **src, int start, int count)
 	while (i < count)
 	{
 		if (!src[start + i])
-			print_parsing_error_message();
+		{
+			printf("Error\nInvalid line !!\n");
+			exit(1);
+		}
 		dest[i] = ft_strdup(src[start + i]);
 		if (!dest[i])
-			print_malloc_error_message();
+		{
+			printf("Error while allocating memory for new_map!!\n");
+			exit(1);
+		}
 		i++;
 	}
 	dest[i] = NULL;
@@ -62,12 +68,12 @@ void	split_map(t_data *data)
 		total_lines++;
 	data->new_map = malloc(sizeof(char *) * (7 + 1));
 	if (!data->new_map)
-		print_malloc_error_message();
+		print_malloc_error_message(data);
 	copy_map_section(data->new_map, data->start_map, 0, 7);
 	data->new_map[7] = NULL;
 	data->mini_map = malloc(sizeof(char *) * (total_lines - 7 + 1));
 	if (!data->mini_map)
-		print_malloc_error_message();
+		print_malloc_error_message(data);
 	copy_map_section(data->mini_map, data->start_map, 7, total_lines - 7);
 	data->mini_map[total_lines - 7] = NULL;
 }
@@ -90,6 +96,7 @@ void	handle_spaces(t_data *data)
 			if (!trimmed)
 			{
 				printf("Error while allocating memory for trimmed line!\n");
+				free_(data);
 				exit(1);
 			}
 			free(data->new_map[i]);
@@ -121,9 +128,9 @@ void	check_prefix(t_data *data)
 		else if (data->new_map[i][0] == 'D')
 			data->flag++;
 		else
-			print_invalid_map_error_message();
+			print_invalid_map_error_message(data);
 		i++;
 	}
 	if (data->flag != 7)
-		print_incorrect_prefix_error_message();
+		print_incorrect_prefix_error_message(data);
 }

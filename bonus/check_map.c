@@ -6,7 +6,7 @@
 /*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 14:40:09 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/20 03:20:24 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/21 08:12:00 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	check_all_in_map(t_data *data)
 				&& data->mini_map[i][j] != ' ' && data->mini_map[i][j] != 'D')
 			{
 				printf("Error\n incorrect caracter !");
+				free_(data);
 				exit(1);
 			}
 			j++;
@@ -107,6 +108,7 @@ void	read_lines(char *path, t_data *data)
 	if (fd < 0)
 	{
 		printf("Error while opening the file !\n");
+		free(data);
 		exit(1);
 	}
 	lines = start_reading(fd, line);

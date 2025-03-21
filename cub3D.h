@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 00:40:18 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/20 15:48:40 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/21 08:43:38 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -258,15 +258,15 @@ int					press_key(int keycode, t_data *data);
 void				init_data(t_data *data);
 int					close_win(t_data *data);
 void				split_map(t_data *data);
-void				print_malloc_error_message(void);
-void				print_parsing_error_message(void);
+void				print_malloc_error_message(t_data *data);
+void				print_parsing_error_message(t_data *data);
 void				handle_spaces(t_data *data);
 void				check_prefix(t_data *data);
-void				print_invalid_map_error_message(void);
+void				print_invalid_map_error_message(t_data *data);
 void				assigne_colors(t_data *data);
 void				assigne_texture(t_data *data);
-void				print_incorrect_texture_error_message(void);
-void				print_incorrect_prefix_error_message(void);
+void				print_incorrect_texture_error_message(t_data *data);
+void				print_incorrect_prefix_error_message(t_data *data);
 void				load_textures(t_data *data);
 void				get_texture_data(t_data *data);
 void				rotate_player(t_data *data, double rotation_angle);
@@ -303,10 +303,10 @@ void				rotate_right(t_data *data);
 void				free_texture_one(t_data *data);
 void				free_texture_two(t_data *data);
 void				free_texture_three(t_data *data);
-void				texture_east_error_message(void);
-void				texture_west_error_message(void);
-void				texture_south_error_message(void);
-void				texture_north_error_message(void);
+void				texture_east_error_message(t_data *data);
+void				texture_west_error_message(t_data *data);
+void				texture_south_error_message(t_data *data);
+void				texture_north_error_message(t_data *data);
 void				pars_error(int argc);
 int					handle_mouse_movement(int mouse_x, int mouse_y,
 						t_data *data);
@@ -315,7 +315,7 @@ void				alloc_textures(t_data *data);
 void				init_mouse(t_data *data);
 void				init_second(t_data *data);
 void				free_door_texture(t_data *data);
-void				texture_door_error_message(void);
+void				texture_door_error_message(t_data *data);
 void				check_door(t_data *data);
 void				copy_and_free_no(t_data *data);
 void				copy_and_free_we(t_data *data);

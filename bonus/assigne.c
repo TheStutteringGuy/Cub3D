@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   assigne.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 16:41:52 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/14 15:04:20 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/21 08:45:36 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	assigne_colors(t_data *data)
 	if (!data->my_color)
 	{
 		printf("Error while allocating memory !!\n");
+		free_(data);
 		exit(1);
 	}
 	while (data->new_map[i])
@@ -31,7 +32,7 @@ void	assigne_colors(t_data *data)
 		{
 			data->my_color[j] = ft_strdup(data->new_map[i]);
 			if (!data->my_color[j])
-				print_malloc_error_message();
+				print_malloc_error_message(data);
 			j++;
 		}
 		i++;
@@ -48,7 +49,7 @@ void	assigne_texture(t_data *data)
 	j = 0;
 	data->my_map = malloc(sizeof(char *) * 6);
 	if (!data->my_map)
-		print_malloc_error_message();
+		print_malloc_error_message(data);
 	while (data->new_map[i])
 	{
 		if ((data->new_map[i][0] == 'N' && data->new_map[i][1] == 'O')
@@ -59,7 +60,7 @@ void	assigne_texture(t_data *data)
 		{
 			data->my_map[j] = ft_strdup(data->new_map[i]);
 			if (!data->my_map[j])
-				print_malloc_error_message();
+				print_malloc_error_message(data);
 			j++;
 		}
 		i++;

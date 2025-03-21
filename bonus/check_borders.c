@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_borders.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 00:00:08 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/20 15:51:22 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/21 08:10:39 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	check_top_borders(t_data *data)
 			&& data->mini_map[0][x] != '\t')
 		{
 			printf("Error\nNo border !");
+			free_(data);
 			exit(1);
 		}
 		x++;
@@ -44,6 +45,7 @@ void	check_bottom_border(t_data *data)
 			&& data->mini_map[j - 1][x] != '\t')
 		{
 			printf("Error\nNo border !");
+			free_(data);
 			exit(1);
 		}
 		x++;
@@ -66,6 +68,7 @@ void	check_right_border(t_data *data)
 		if (len > 0 && data->mini_map[j][len - 1] != '1')
 		{
 			printf("Error\nNo border !");
+			free_(data);
 			exit(1);
 		}
 		j++;
@@ -83,6 +86,7 @@ void	check_left_border(t_data *data)
 			&& data->mini_map[j][0] != '\t')
 		{
 			printf("Error\nNo border !");
+			free(data);
 			exit(1);
 		}
 		j++;
@@ -94,8 +98,8 @@ void	check_around_space(t_data *data)
 	int	i;
 	int	j;
 
-	i = 0;
-	while (data->mini_map[i])
+	i = -1;
+	while (data->mini_map[++i])
 	{
 		j = 0;
 		while (data->mini_map[i][j])
@@ -108,12 +112,12 @@ void	check_around_space(t_data *data)
 						- 1][j] == '0') || (data->mini_map[i + 1]
 						&& data->mini_map[i + 1][j] == '0'))
 				{
-					printf("Error\nInvalid map !!\n");
+					printf("Error\nInvalid map :D !!\n");
+					free_(data);
 					exit(1);
 				}
 			}
 			j++;
 		}
-		i++;
 	}
 }

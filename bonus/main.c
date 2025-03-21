@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 00:33:48 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/20 15:23:46 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/21 08:13:18 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ int	main(int argc, char **argv)
 	t_data	data;
 	t_path	path;
 
+	ft_memset(&data, 0, sizeof(t_data));
 	pars_error(argc);
 	check_path(argv[1]);
-	ft_memset(&data, 0, sizeof(t_data));
 	read_lines(argv[1], &data);
 	function_call(&data, &path);
 	data.mlx = mlx_init();

@@ -6,7 +6,7 @@
 /*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 14:40:09 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/20 03:20:03 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/21 08:24:14 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	check_all_in_map(t_data *data)
 				&& data->mini_map[i][j] != ' ')
 			{
 				printf("Error\n incorrect caracter !");
+				free_(data);
 				exit(1);
 			}
 			j++;

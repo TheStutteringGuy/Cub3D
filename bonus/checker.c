@@ -6,7 +6,7 @@
 /*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 17:49:56 by ahmed             #+#    #+#             */
-/*   Updated: 2025/03/20 03:16:00 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/21 08:17:29 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,13 @@ void	check_no_identifier(t_data *data)
 	data->prefix = bgc_malloc(&data, 4 + 1, Simple);
 	data->texture = bgc_malloc(&data, 256, Array);
 	if (!data->texture || !data->prefix)
-	{
-		free(data->prefix);
-		free(data->texture);
 		return ;
-	}
 	i = 0;
 	iterate_in_map(&i, data);
 	if (data->count != 5)
 	{
 		printf("Error\n incorrect identifier !");
+		free_(data);
 		exit(1);
 	}
 }
@@ -68,6 +65,7 @@ void	check_door(t_data *data)
 	if (d < 1)
 	{
 		printf("Error\n One Door nedded at least !!\n");
+		free_(data);
 		exit(1);
 	}
 }

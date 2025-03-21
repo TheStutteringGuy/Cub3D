@@ -6,7 +6,7 @@
 /*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 20:28:26 by aibn-ich          #+#    #+#             */
-/*   Updated: 2025/03/19 23:48:36 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/21 08:07:11 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,14 @@ void	free_(t_data *data)
 		mlx_destroy_image(data->mlx, data->we_texture_img);
 	if (data->ea_texture_img)
 		mlx_destroy_image(data->mlx, data->ea_texture_img);
-	mlx_destroy_image(data->mlx, data->r_img);
-	mlx_destroy_window(data->mlx, data->mlx_win);
-	mlx_destroy_display(data->mlx);
-	free(data->mlx);
-	data->mlx = NULL;
+	if (data->r_img)
+		mlx_destroy_image(data->mlx, data->r_img);
+	if (data->mlx_win)
+		mlx_destroy_window(data->mlx, data->mlx_win);
+	if (data->mlx)
+	{
+		mlx_destroy_display(data->mlx);
+		free(data->mlx);
+		data->mlx = NULL;
+	}
 }

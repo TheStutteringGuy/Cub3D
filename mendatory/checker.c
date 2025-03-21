@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 17:49:56 by ahmed             #+#    #+#             */
-/*   Updated: 2025/03/19 15:51:15 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/21 08:29:43 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,13 @@ void	check_no_identifier(t_data *data)
 	data->prefix = bgc_malloc(&data, 3 + 1, Simple);
 	data->texture = bgc_malloc(&data, 256, Array);
 	if (!data->texture || !data->prefix)
-	{
-		free(data->prefix);
-		free(data->texture);
 		return ;
-	}
 	i = 0;
 	iterate_in_map(&i, data);
 	if (data->count != 4)
 	{
 		printf("Error\n incorrect identifier !");
+		free_(data);
 		exit(1);
 	}
 }

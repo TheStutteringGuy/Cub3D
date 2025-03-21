@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_rgb.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 16:01:40 by ahmed             #+#    #+#             */
-/*   Updated: 2025/03/09 16:04:36 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/21 08:13:00 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ void	check_rgb_fllor_range(t_data *data)
 		if (data->floor[i] < 0 || data->floor[i] > 255)
 		{
 			printf("Error\n RGB range is incorrect !");
+			free_(data);
 			exit(1);
 		}
 		i++;
@@ -91,6 +92,7 @@ void	check_rgb_cell_range(t_data *data)
 		if (data->cell[j] < 0 || data->cell[j] > 255)
 		{
 			printf("Error\n RGB range is incorrect !");
+			free(data);
 			exit(1);
 		}
 		j++;

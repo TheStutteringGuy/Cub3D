@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 14:46:38 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/05 16:47:23 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/21 08:36:09 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	load_textures(t_data *data)
 	if (!data->no_texture_img)
 	{
 		printf("Error\n Failed to load North texture: %s\n", data->no_texture);
+		free_(data);
 		exit(1);
 	}
 	data->so_texture_img = mlx_xpm_file_to_image(data->mlx, data->so_texture,
@@ -40,17 +41,17 @@ void	get_texture_data(t_data *data)
 	data->no_texture_data = (int *)mlx_get_data_addr(data->no_texture_img,
 			&data->bits_per_pixel, &data->size_line, &data->endian);
 	if (!data->no_texture_data)
-		texture_north_error_message();
+		texture_north_error_message(data);
 	data->so_texture_data = (int *)mlx_get_data_addr(data->so_texture_img,
 			&data->bits_per_pixel, &data->size_line, &data->endian);
 	if (!data->so_texture_data)
-		texture_south_error_message();
+		texture_south_error_message(data);
 	data->we_texture_data = (int *)mlx_get_data_addr(data->we_texture_img,
 			&data->bits_per_pixel, &data->size_line, &data->endian);
 	if (!data->we_texture_data)
-		texture_west_error_message();
+		texture_west_error_message(data);
 	data->ea_texture_data = (int *)mlx_get_data_addr(data->ea_texture_img,
 			&data->bits_per_pixel, &data->size_line, &data->endian);
 	if (!data->ea_texture_data)
-		texture_east_error_message();
+		texture_east_error_message(data);
 }
