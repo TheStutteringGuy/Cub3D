@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 00:33:48 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/21 23:32:06 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/22 01:33:12 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int	main(int argc, char **argv)
 	init_door_state(&data);
 	mlx_hook(data.mlx_win, 2, (1L << 0), press_key, &data);
 	mlx_hook(data.mlx_win, 3, (1L << 1), release_key, &data);
+	mlx_hook(data.mlx_win, 6, 1L << 6, handle_mouse_move, &data);
 	mlx_hook(data.mlx_win, 17, 0, close_win, &data);
 	mlx_loop_hook(data.mlx, game_loop, &data);
 	mlx_loop(data.mlx);

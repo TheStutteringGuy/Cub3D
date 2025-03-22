@@ -6,7 +6,7 @@
 /*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:56:11 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/19 02:24:43 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/22 01:33:20 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,4 @@ void	init_mouse(t_data *data)
 	mlx_mouse_hide(data->mlx, data->mlx_win);
 	mlx_mouse_move(data->mlx, data->mlx_win, SCREEN_W / 2, SCREEN_H
 		/ 2);
-	mlx_hook(data->mlx_win, 6, 1L << 6, handle_mouse_move, data);
 }
