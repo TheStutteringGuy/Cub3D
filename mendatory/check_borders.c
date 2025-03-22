@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_borders.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 00:00:08 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/21 08:23:19 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/22 15:51:01 by aahlaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,9 +112,7 @@ void	check_around_space(t_data *data)
 						- 1][j] == '0') || (data->mini_map[i + 1]
 						&& data->mini_map[i + 1][j] == '0'))
 				{
-					printf("Error\nInvalid map !!\n");
-					free_(data);
-					exit(1);
+					print_free_exit(data);
 				}
 			}
 			j++;

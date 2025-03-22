@@ -14,56 +14,64 @@
 
 void	move_up(t_data *data)
 {
-	data->next_x = (int)(data->player_x + data->dir_x
-			* MOVE_SPEED);
+	data->next_x = (int)(data->player_x + data->dir_x * MOVE_SPEED);
 	data->next_y = (int)data->player_y;
-	if (data->mini_map[data->next_x][data->next_y] != '1' && (data->mini_map[data->next_x][data->next_y] != 'D' || data->door_state[data->next_x][data->next_y] == 1))
+	if (data->mini_map[data->next_x][data->next_y] != '1'
+		&& (data->mini_map[data->next_x][data->next_y] != 'D'
+			|| data->door_state[data->next_x][data->next_y] == 1))
 		data->player_x += data->dir_x * MOVE_SPEED;
 	data->next_x = (int)data->player_x;
-	data->next_y = (int)(data->player_y + data->dir_y
-		* MOVE_SPEED);
-	if (data->mini_map[data->next_x][data->next_y] != '1' && (data->mini_map[data->next_x][data->next_y] != 'D' || data->door_state[data->next_x][data->next_y] == 1))
+	data->next_y = (int)(data->player_y + data->dir_y * MOVE_SPEED);
+	if (data->mini_map[data->next_x][data->next_y] != '1'
+		&& (data->mini_map[data->next_x][data->next_y] != 'D'
+			|| data->door_state[data->next_x][data->next_y] == 1))
 		data->player_y += data->dir_y * MOVE_SPEED;
 }
 
 void	move_down(t_data *data)
 {
-	data->next_x = (int)(data->player_x - data->dir_x
-			* MOVE_SPEED);
+	data->next_x = (int)(data->player_x - data->dir_x * MOVE_SPEED);
 	data->next_y = (int)data->player_y;
-	if (data->mini_map[data->next_x][data->next_y] != '1' && (data->mini_map[data->next_x][data->next_y] != 'D' || data->door_state[data->next_x][data->next_y] == 1))
+	if (data->mini_map[data->next_x][data->next_y] != '1'
+		&& (data->mini_map[data->next_x][data->next_y] != 'D'
+			|| data->door_state[data->next_x][data->next_y] == 1))
 		data->player_x -= data->dir_x * MOVE_SPEED;
 	data->next_x = (int)data->player_x;
-	data->next_y = (int)(data->player_y - data->dir_y
-		* MOVE_SPEED);
-	if (data->mini_map[data->next_x][data->next_y] != '1' && (data->mini_map[data->next_x][data->next_y] != 'D' || data->door_state[data->next_x][data->next_y] == 1))
+	data->next_y = (int)(data->player_y - data->dir_y * MOVE_SPEED);
+	if (data->mini_map[data->next_x][data->next_y] != '1'
+		&& (data->mini_map[data->next_x][data->next_y] != 'D'
+			|| data->door_state[data->next_x][data->next_y] == 1))
 		data->player_y -= data->dir_y * MOVE_SPEED;
 }
 
 void	move_left(t_data *data)
 {
-	data->next_x = (int)(data->player_x - data->plan_x
-			* MOVE_SPEED);
+	data->next_x = (int)(data->player_x - data->plan_x * MOVE_SPEED);
 	data->next_y = (int)data->player_y;
-	if (data->mini_map[data->next_x][data->next_y] != '1' && (data->mini_map[data->next_x][data->next_y] != 'D' || data->door_state[data->next_x][data->next_y] == 1))
+	if (data->mini_map[data->next_x][data->next_y] != '1'
+		&& (data->mini_map[data->next_x][data->next_y] != 'D'
+			|| data->door_state[data->next_x][data->next_y] == 1))
 		data->player_x -= data->plan_x * MOVE_SPEED;
 	data->next_x = (int)data->player_x;
-	data->next_y = (int)(data->player_y - data->plan_y
-		* MOVE_SPEED);
-	if (data->mini_map[data->next_x][data->next_y] != '1' && (data->mini_map[data->next_x][data->next_y] != 'D' || data->door_state[data->next_x][data->next_y] == 1))
+	data->next_y = (int)(data->player_y - data->plan_y * MOVE_SPEED);
+	if (data->mini_map[data->next_x][data->next_y] != '1'
+		&& (data->mini_map[data->next_x][data->next_y] != 'D'
+			|| data->door_state[data->next_x][data->next_y] == 1))
 		data->player_y -= data->plan_y * MOVE_SPEED;
 }
 
 void	move_right(t_data *data)
 {
-	data->next_x = (int)(data->player_x + data->plan_x
-			* MOVE_SPEED);
+	data->next_x = (int)(data->player_x + data->plan_x * MOVE_SPEED);
 	data->next_y = (int)data->player_y;
-	if (data->mini_map[data->next_x][data->next_y] != '1' && (data->mini_map[data->next_x][data->next_y] != 'D' || data->door_state[data->next_x][data->next_y] == 1))
+	if (data->mini_map[data->next_x][data->next_y] != '1'
+		&& (data->mini_map[data->next_x][data->next_y] != 'D'
+			|| data->door_state[data->next_x][data->next_y] == 1))
 		data->player_x += data->plan_x * MOVE_SPEED;
 	data->next_x = (int)data->player_x;
-	data->next_y = (int)(data->player_y + data->plan_y
-		* MOVE_SPEED);
-	if (data->mini_map[data->next_x][data->next_y] != '1' && (data->mini_map[data->next_x][data->next_y] != 'D' || data->door_state[data->next_x][data->next_y] == 1))
+	data->next_y = (int)(data->player_y + data->plan_y * MOVE_SPEED);
+	if (data->mini_map[data->next_x][data->next_y] != '1'
+		&& (data->mini_map[data->next_x][data->next_y] != 'D'
+			|| data->door_state[data->next_x][data->next_y] == 1))
 		data->player_y += data->plan_y * MOVE_SPEED;
 }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+         #
+#    By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 00:08:49 by aahlaqqa          #+#    #+#              #
-#    Updated: 2025/03/22 01:14:10 by aibn-ich         ###   ########.fr        #
+#    Updated: 2025/03/22 15:40:32 by aahlaqqa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ CFLAGS = -Wall -Wextra -Werror -g3
 # LDFLAGS = -g3 -fsanitize=address
 FLAGS = ./minilibx-linux/libmlx.a -lXext -lX11 -lm
 NAME = cub3D
+BONUS_NAME = cub3D_bonus
 
 SOURCES= mendatory/parse_map.c mendatory/check_map.c mendatory/ft_strcmp.c Libft/ft_strrchr.c \
 Libft/ft_strlen.c Libft/ft_split.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c \
@@ -50,13 +51,13 @@ $(NAME): $(SOURCES) $(EXTRA_SRCS) $(HEADERS)
 	$(CC) $(CFLAGS) $(SOURCES) $(EXTRA_SRCS) $(FLAGS) -o $(NAME)
 
 bonus: $(BONUS) $(HEADERS) $(EXTRA_SRCS)
-	$(CC) $(CFLAGS) $(BONUS) $(EXTRA_SRCS) $(FLAGS) -o $(NAME)
+	$(CC) $(CFLAGS) $(BONUS) $(EXTRA_SRCS) $(FLAGS) -o $(BONUS_NAME)
 
 clean:
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(BONUS_NAME)
 
-re: fclean $(NAME)
+re: fclean $(NAME) $(BONUS_NAME)
 
 .PHONY: all clean fclean re bonus

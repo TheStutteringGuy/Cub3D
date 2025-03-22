@@ -15,7 +15,7 @@
 void	free_texture_one(t_data *data)
 {
 	printf("Error\n Failed to load South texture: %s\n", data->so_texture);
-	free_(data);	
+	free_(data);
 	exit(1);
 }
 

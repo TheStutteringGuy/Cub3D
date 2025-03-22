@@ -6,7 +6,7 @@
 /*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 14:45:20 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/21 17:07:42 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/22 15:35:01 by aahlaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	press_key(int key, t_data *data)
 		data->rotate_left = true;
 	else if (key == 65363)
 		data->rotate_right = true;
-	else if (key == 32)
+	else if (key == 101)
 		data->move_door = true;
 	return (0);
 }
@@ -50,7 +50,7 @@ int	release_key(int key, t_data *data)
 		data->rotate_left = false;
 	else if (key == 65363)
 		data->rotate_right = false;
-	else if (key == 32)
+	else if (key == 101)
 		data->move_door = false;
 	return (0);
 }
@@ -77,7 +77,7 @@ int	game_loop(t_data *data)
 {
 	static int	first_frame = 1;
 	float		door_timer;
-	
+
 	door_timer = 0.016;
 	if (first_frame)
 	{
