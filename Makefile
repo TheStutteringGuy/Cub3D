@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+         #
+#    By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 00:08:49 by aahlaqqa          #+#    #+#              #
-#    Updated: 2025/03/21 14:48:03 by aahlaqqa         ###   ########.fr        #
+#    Updated: 2025/03/22 01:14:10 by aibn-ich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g3
 # LDFLAGS = -g3 -fsanitize=address
-FLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm
+FLAGS = ./minilibx-linux/libmlx.a -lXext -lX11 -lm
 NAME = cub3D
 
 SOURCES= mendatory/parse_map.c mendatory/check_map.c mendatory/ft_strcmp.c Libft/ft_strrchr.c \

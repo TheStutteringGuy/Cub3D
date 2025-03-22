@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 00:40:18 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/21 16:17:28 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/22 00:36:20 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -340,14 +340,15 @@ void				add_texture_ea(t_data *data);
 void				add_texture_we(t_data *data);
 void				add_texture_so(t_data *data);
 void				add_texture_no(t_data *data);
-void init_door_state(t_data *data);
-void free_door_state(t_data *data);
-int is_locking_at_door(t_data *data);
-void start_interaction(t_data *data);
-void update_doors(t_data *data, float door_timer);
+void 				init_door_state(t_data *data);
+void 				free_door_state(t_data *data);
+int					is_locking_at_door(t_data *data);
+void				start_interaction(t_data *data);
+void				update_doors(t_data *data, float door_timer);
 
 ////////////////////////////////////////////////
 
 void				free_(t_data *data);
+int					handle_mouse_move(int x, int y, t_data *data);
 
 #endif
