@@ -6,7 +6,7 @@
 #    By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 00:08:49 by aahlaqqa          #+#    #+#              #
-#    Updated: 2025/03/23 03:16:28 by aahlaqqa         ###   ########.fr        #
+#    Updated: 2025/03/23 14:17:33 by aahlaqqa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,8 @@ bonus/init_dirs_and_plans.c bonus/init_vars.c bonus/init_textures.c \
 bonus/calculate_wall.c bonus/iterate_in_map.c bonus/iterate_color_map.c \
 bonus/handle_moves.c bonus/rotate.c bonus/free_textures.c \
 bonus/texture_errors.c bonus/alloc_texture.c bonus/init.c bonus/mouse.c bonus/z_Free.c \
-bonus/copy_and_free.c bonus/init_texture1.c bonus/animation_door.c bonus/check_door.c
+bonus/copy_and_free.c bonus/init_texture1.c bonus/animation_door.c bonus/check_door.c \
+bonus/mini_map.c
 
 EXTRA_SRCS = ./TheStutteringGuy/BGC,/BGC.c
 

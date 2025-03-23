@@ -6,7 +6,7 @@
 /*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 00:40:18 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/23 03:20:00 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/23 23:24:36 by aahlaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -215,6 +215,11 @@ typedef struct s_data
 	bool			move_door;
 	int is_left_right;
 	int is_up_down;
+	int	tile_size;
+	int	radius;
+	int	startx;
+	int	starty;
+	//////////////////////////
 }					t_data;
 
 // #include "./TheStutteringGuy/BGC,/BGC.h"
@@ -348,6 +353,11 @@ int					is_locking_at_door(t_data *data);
 void				start_interaction(t_data *data);
 void				update_doors(t_data *data, float door_timer);
 void check_valid_door(t_data *data);
+void	draw_minimap(t_data *data);
+void	draw_background(t_data *data, int minimap_size);
+void	draw_map_tiles(t_data *data);
+void	draw_player(t_data *data, int player_pixel_x, int player_pixel_y);
+void	draw_direction_line(t_data *data, int player_pixel_x, int player_pixel_y, int dir_length);
 ////////////////////////////////////////////////
 
 void				free_(t_data *data);
