@@ -12,13 +12,13 @@
 
 
 
-NO images/res1.xpm
-WE images/res2.xpm
-EA images/res3.xpm
-SO images/res4.xpm
+NO images/map1.xpm
+WE images/map2.xpm
+EA images/map3.xpm
+SO images/map4.xpm
 
-F 98, 101, 103 
-C 192, 57,    43
+F 39, 55, 70 
+C 121, 125,   127
 
 
 
