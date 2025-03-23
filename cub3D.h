@@ -6,7 +6,7 @@
 /*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 00:40:18 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/22 15:50:30 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/23 03:20:00 by aahlaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -213,6 +213,8 @@ typedef struct s_data
 	int				next_x;
 	int				next_y;
 	bool			move_door;
+	int is_left_right;
+	int is_up_down;
 }					t_data;
 
 // #include "./TheStutteringGuy/BGC,/BGC.h"
@@ -345,7 +347,7 @@ void				free_door_state(t_data *data);
 int					is_locking_at_door(t_data *data);
 void				start_interaction(t_data *data);
 void				update_doors(t_data *data, float door_timer);
-
+void check_valid_door(t_data *data);
 ////////////////////////////////////////////////
 
 void				free_(t_data *data);
