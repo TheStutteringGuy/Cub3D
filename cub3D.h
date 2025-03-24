@@ -6,7 +6,7 @@
 /*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 00:40:18 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/24 03:44:11 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/24 04:04:35 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -213,8 +213,34 @@ typedef struct s_data
 	int				next_x;
 	int				next_y;
 	bool			move_door;
-	int is_left_right;
-	int is_up_down;
+	int				is_left_right;
+	int				is_up_down;
+	int				tile_size;
+	int				radius;
+	int				startx;
+	int				starty;
+	int				player_mapx;
+	int				player_mapy;
+	int				start_map_x;
+	int				start_map_y;
+	int				draw_x;
+	int				draw_y;
+	int				dx;
+	int				dy;
+	int				mini_map_x;
+	int				mini_map_y;
+	int				mini_color;
+	int				dir_end_x;
+	int				dir_end_y;
+	int				dx1;
+	int				dy1;
+	int				sx;
+	int				sy;
+	int				err;
+	int				e2;
+	int				curr_x;
+	int				curr_y;
+	//////////////////////////
 }					t_data;
 
 // #include "./TheStutteringGuy/BGC,/BGC.h"
@@ -347,7 +373,19 @@ void				free_door_state(t_data *data);
 int					is_locking_at_door(t_data *data);
 void				start_interaction(t_data *data);
 void				update_doors(t_data *data, float door_timer);
-void check_valid_door(t_data *data);
+void				check_valid_door(t_data *data);
+void				draw_minimap(t_data *data);
+void				draw_background(t_data *data, int minimap_size);
+void				draw_map_tiles(t_data *data);
+void				draw_player(t_data *data, int player_pixel_x,
+						int player_pixel_y);
+void				draw_direction_line(t_data *data, int player_pixel_x,
+						int player_pixel_y, int dir_length);
+void				handle_draw_direction_line(t_data *data, int player_pixel_x,
+						int player_pixel_y, int dir_length);
+void				handle_mini_map_colors(t_data *data);
+void				init_map_tiles_var(t_data *data);
+void				init_darw_map_tile(t_data *data, int i, int j);
 ////////////////////////////////////////////////
 
 void				free_(t_data *data);

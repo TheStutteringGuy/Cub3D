@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 16:16:04 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/19 02:24:43 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/23 23:07:14 by aahlaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,6 @@ void	raycasting(t_data *data)
 		draw_column(data, x);
 		x++;
 	}
+	draw_minimap(data);
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->r_img, 0, 0);
 }
