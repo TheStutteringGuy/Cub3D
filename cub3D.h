@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 00:40:18 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/24 04:04:35 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/24 21:40:41 by aahlaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,6 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
-
-# ifndef M_PI
-#  define M_PI 3.14159265358979323846
-# endif
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
@@ -386,6 +382,7 @@ void				handle_draw_direction_line(t_data *data, int player_pixel_x,
 void				handle_mini_map_colors(t_data *data);
 void				init_map_tiles_var(t_data *data);
 void				init_darw_map_tile(t_data *data, int i, int j);
+void				check_flags(t_data *data);
 ////////////////////////////////////////////////
 
 void				free_(t_data *data);

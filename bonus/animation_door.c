@@ -12,7 +12,7 @@
 
 #include "../cub3D.h"
 
-void complete(t_data *data)
+void	complete(t_data *data)
 {
 	data->door_animation = false;
 	data->timer = 0.0;
@@ -46,7 +46,6 @@ void	init_door_state(t_data *data)
 		ft_memset(data->door_state[i], 0, sizeof(data->door_state[i]));
 		i++;
 	}
-	
 }
 
 // void	free_door_state(t_data *data)

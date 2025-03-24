@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map1.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 16:29:25 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/24 04:22:36 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/24 21:41:14 by aahlaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,5 @@ void	check_prefix(t_data *data)
 			print_invalid_map_error_message(data);
 		i++;
 	}
-	if (data->flag != 7)
-		print_incorrect_prefix_error_message(data);
+	check_flags(data);
 }

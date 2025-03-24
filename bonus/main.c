@@ -6,7 +6,7 @@
 /*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 00:33:48 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/23 14:18:30 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/24 21:37:59 by aahlaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	main(int argc, char **argv)
 	load_textures(&data);
 	get_texture_data(&data);
 	data.mlx_win = mlx_new_window(data.mlx, SCREEN_W, SCREEN_H,
-			"Cub3D");
+			"cub3D");
 	data.r_img = mlx_new_image(data.mlx, SCREEN_W, SCREEN_H);
 	data.r_addr = mlx_get_data_addr(data.r_img, &data.bits_per_pixel,
 			&data.size_line, &data.endian);
