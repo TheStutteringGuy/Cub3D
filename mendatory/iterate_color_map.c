@@ -6,7 +6,7 @@
 /*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 16:13:55 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/21 08:37:03 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/24 05:33:04 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	allocate_and_copy_prefix1(t_data *data, int i, int *j)
 	if (!(data->prefix1))
 		print_malloc_error_message(data);
 	*j = 0;
-	while (data->my_color[i][*j] != ' ' && data->my_color[i][*j] != '\0')
+	while (data->my_color[i][*j] != ' ' && data->my_color[i][*j] != '\t' && data->my_color[i][*j] != '\0')
 	{
 		(data->prefix1)[*j] = data->my_color[i][*j];
 		(*j)++;
@@ -30,8 +30,8 @@ void	allocate_and_copy_prefix1(t_data *data, int i, int *j)
 		data->c_count++;
 	if (data->f_count > 1 || data->c_count > 1)
 		print_incorrect_prefix_error_message(data);
-	if (data->my_color[i][*j] == ' ')
-		(*j)++;
+	// while (data->my_color[i][*j] == ' ' || data->my_color[i][*j] != '\t')
+	// 	(*j)++;
 }
 
 void	allocate_and_copy_rest(t_data *data, int i, int j)
@@ -44,8 +44,10 @@ void	allocate_and_copy_rest(t_data *data, int i, int j)
 		print_malloc_error_message(data);
 	while (data->my_color[i][j] != '\0')
 	{
-		while (data->my_color[i][j] == '\t' || data->my_color[i][j] == ' ')
+		while ((data->my_color[i][j] == '\t' || data->my_color[i][j] == ' ') && data->my_color[i][j] != '\0')
 			j++;
+		if (data->my_color[i][j] == '\0')
+			break;
 		(data->rest)[w] = data->my_color[i][j];
 		w++;
 		j++;

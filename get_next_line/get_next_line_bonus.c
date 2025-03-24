@@ -6,7 +6,7 @@
 /*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 09:30:50 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/24 03:21:59 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/24 04:08:46 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,10 +113,10 @@ char	*read_line(char *str, int fd)
 
 char	*get_next_line(int fd)
 {
-	static char	*str[OPEN_MAX];
+	static char	*str[1024];
 	char		*line;
 
-	if (fd < 0 || fd > OPEN_MAX || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd > 1024 || BUFFER_SIZE <= 0)
 		return (NULL);
 	str[fd] = read_line(str[fd], fd);
 	if (!str[fd])

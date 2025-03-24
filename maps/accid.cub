@@ -1,9 +1,10 @@
-NO images/map1.xpm
-WE images/map2.xpm
+
+NO    images/map1.xpm
+WE images/map2.xpm  
 EA images/map3.xpm
 SO images/map4.xpm
-F 39, 55, 70
-C 121, 125,   127
+F 39, 55, 70       
+C 121, 125,   127       
 
 
 111111111111111111111111111111111111111111111111

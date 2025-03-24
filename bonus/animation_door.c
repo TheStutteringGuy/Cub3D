@@ -3,60 +3,69 @@
 /*                                                        :::      ::::::::   */
 /*   animation_door.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 14:47:38 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/22 16:01:42 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/24 05:12:13 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3D.h"
 
-void	init_door_state(t_data *data)
+void complete(t_data *data)
 {
-	int	i;
-
-	i = 0;
-	data->door_state = malloc(sizeof(bool *) * data->map_width);
-	if (!data->door_state)
-	{
-		printf("Error while allocating memory !!\n");
-		exit(1);
-	}
-	while (i < data->map_width)
-	{
-		data->door_state[i] = malloc(sizeof(bool) * data->map_height);
-		if (!data->door_state[i])
-		{
-			printf("Error while allocating memory !!\n");
-			exit(1);
-		}
-		ft_memset(data->door_state[i], 0, sizeof(bool) * data->map_height);
-		i++;
-	}
 	data->door_animation = false;
 	data->timer = 0.0;
 	data->door_x = -1;
 	data->door_y = -1;
 }
 
-void	free_door_state(t_data *data)
+void	init_door_state(t_data *data)
 {
 	int	i;
 
 	i = 0;
-	if (data->door_state)
+	data->door_state = malloc(sizeof(bool *) * (data->map_width + 1));
+	if (!data->door_state)
 	{
-		while (i < data->map_width)
-		{
-			if (data->door_state[i])
-				free(data->door_state[i]);
-			i++;
-		}
-		free(data->door_state);
-		data->door_state = NULL;
+		printf("Error while allocating memory !!\n");
+		free_(data);
+		exit(1);
 	}
+	data->door_state[data->map_width] = NULL;
+	bgc_new(&data, data->door_state, sizeof(data->door_state), TwoD_Array);
+	while (i < data->map_width)
+	{
+		data->door_state[i] = malloc(sizeof(bool) * data->map_height);
+		if (!data->door_state[i])
+		{
+			printf("Error while allocating memory !!\n");
+			free_(data);
+			exit(1);
+		}
+		ft_memset(data->door_state[i], 0, sizeof(data->door_state[i]));
+		i++;
+	}
+	
 }
+
+// void	free_door_state(t_data *data)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	if (data->door_state)
+// 	{
+// 		while (i < data->map_width)
+// 		{
+// 			if (data->door_state[i])
+// 				free(data->door_state[i]);
+// 			i++;
+// 		}
+// 		free(data->door_state);
+// 		data->door_state = NULL;
+// 	}
+// }
 
 int	is_locking_at_door(t_data *data)
 {

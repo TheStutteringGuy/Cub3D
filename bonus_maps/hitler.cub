@@ -3,8 +3,8 @@ SO bonus_images/hitler2.xpm
 WE bonus_images/hitler3.xpm
 EA bonus_images/hitler4.xpm
 D bonus_images/hitler5.xpm
-F 102,0,0
-C 64,64,64
+F 102,0,0       
+C 64,64,64          
 
 111111111111111111111
 101000001000000000001

@@ -6,7 +6,7 @@
 #    By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 00:08:49 by aahlaqqa          #+#    #+#              #
-#    Updated: 2025/03/24 04:06:12 by aibn-ich         ###   ########.fr        #
+#    Updated: 2025/03/24 05:18:01 by aibn-ich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,8 @@ bonus/init_dirs_and_plans.c bonus/init_vars.c bonus/init_textures.c \
 bonus/calculate_wall.c bonus/iterate_in_map.c bonus/iterate_color_map.c \
 bonus/handle_moves.c bonus/rotate.c bonus/free_textures.c \
 bonus/texture_errors.c bonus/alloc_texture.c bonus/init.c bonus/mouse.c bonus/z_Free.c \
-bonus/copy_and_free.c bonus/init_texture1.c bonus/animation_door.c bonus/check_door.c bonus/z_Furhter_checks.c
+bonus/copy_and_free.c bonus/init_texture1.c bonus/animation_door.c bonus/check_door.c \
+bonus/mini_map.c bonus/mini_map1.c bonus/z_Furhter_checks.c
 
 EXTRA_SRCS = ./TheStutteringGuy/BGC,/BGC.c
 
@@ -58,6 +59,6 @@ clean:
 fclean: clean
 	rm -f $(NAME) $(BONUS_NAME)
 
-re: fclean $(NAME) $(BONUS_NAME)
+re: fclean $(NAME)
 
 .PHONY: all clean fclean re bonus
