@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 14:40:09 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/24 03:57:27 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/24 18:27:14 by aahlaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,10 +117,6 @@ void	read_lines(char *path, t_data *data)
 	free(lines);
 	lines = NULL;
 	further_checks(data, data->start_map);
-	/////
-	// free_(data);
-	// exit(1);
-	/////
 	split_map(data);
 	handle_spaces(data);
 	check_prefix(data);

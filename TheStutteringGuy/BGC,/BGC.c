@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BGC.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 02:45:26 by aibn-ich          #+#    #+#             */
-/*   Updated: 2025/03/24 01:59:30 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/24 18:29:40 by aahlaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,10 @@ void	*bgc_malloc(t_data **data, size_t size, t_type type)
 	bgc_new(data, ptr, size, type);
 	return (ptr);
 }
-void free_twod_array(void **ptr)
+
+void	free_twod_array(void **ptr)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (ptr[i])

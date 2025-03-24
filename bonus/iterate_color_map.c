@@ -44,10 +44,11 @@ void	allocate_and_copy_rest(t_data *data, int i, int j)
 		print_malloc_error_message(data);
 	while (data->my_color[i][j] != '\0')
 	{
-		while ((data->my_color[i][j] == '\t' || data->my_color[i][j] == ' ') && data->my_color[i][j] != '\0')
+		while ((data->my_color[i][j] == '\t' || data->my_color[i][j] == ' ')
+			&& data->my_color[i][j] != '\0')
 			j++;
 		if (data->my_color[i][j] == '\0')
-			break;
+			break ;
 		(data->rest)[w] = data->my_color[i][j];
 		w++;
 		j++;
