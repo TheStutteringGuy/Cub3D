@@ -6,7 +6,7 @@
 /*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 00:40:18 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/23 23:24:36 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/24 00:23:03 by aahlaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -219,6 +219,27 @@ typedef struct s_data
 	int	radius;
 	int	startx;
 	int	starty;
+	int	player_mapx;
+	int	player_mapy;
+	int	start_map_x;
+	int	start_map_y;
+	int	draw_x;
+	int	draw_y;
+	int	dx;
+	int	dy;
+	int	mini_map_x;
+	int	mini_map_y;
+	int	mini_color;
+	int	dir_end_x;
+	int	dir_end_y;
+	int	dx1;
+	int	dy1;
+	int	sx;
+	int	sy;
+	int	err;
+	int	e2;
+	int	curr_x;
+	int	curr_y;
 	//////////////////////////
 }					t_data;
 

@@ -6,7 +6,7 @@
 /*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 14:12:11 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/23 23:27:32 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/24 00:25:54 by aahlaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,50 +55,39 @@ void	draw_map_tiles(t_data *data)
 {
 	int	i;
 	int	j;
-	int	map_x;
-	int	map_y;
-	int	draw_x;
-	int	draw_y;
-	int	dx;
-	int	dy;
-	int	color;
-	int	player_map_x;
-	int	player_map_y;
-	int	start_map_x;
-	int	start_map_y;
 	
-	player_map_x = (int)data->player_x;
-	player_map_y = (int)data->player_y;
-	start_map_x = player_map_x - data->radius;
-	start_map_y = player_map_y - data->radius;
+	data->player_mapx = (int)data->player_x;
+	data->player_mapy = (int)data->player_y;
+	data->start_map_x = data->player_mapx - data->radius;
+	data->start_map_y = data->player_mapy - data->radius;
 	i = 0;
 	while (i < data->radius * 2 + 1)
 	{
-		map_x = start_map_x + i;
+		data->mini_map_x = data->start_map_x + i;
 		j = 0;
 		while (j < data->radius * 2 + 1)
 		{
-			map_y = start_map_y + j;
-			draw_x = data->startx + i * data->tile_size;
-			draw_y = data->starty + j * data->tile_size;
-			if (map_x >= 0 && map_y >= 0 && map_x < data->map_height && map_y < data->map_width)
+			data->mini_map_y = data->start_map_y + j;
+			data->draw_x = data->startx + i * data->tile_size;
+			data->draw_y = data->starty + j * data->tile_size;
+			if (data->mini_map_x >= 0 && data->mini_map_y  >= 0 && data->mini_map_x < data->map_height && data->mini_map_y  < data->map_width)
 			{
-				if (data->mini_map[map_x][map_y] == '1')
-					color = 0x808080;
-				else if (data->mini_map[map_x][map_y] == 'D')
-					color = 0x964B00;
+				if (data->mini_map[data->mini_map_x][data->mini_map_y ] == '1')
+					data->mini_color = 0x808080;
+				else if (data->mini_map[data->mini_map_x][data->mini_map_y ] == 'D')
+					data->mini_color = 0x964B00;
 				else
-					color = 0x000000;
-				dx = 0;
-				while (dx < data->tile_size)
+					data->mini_color = 0x000000;
+				data->dx = 0;
+				while (data->dx < data->tile_size)
 				{
-					dy = 0;
-					while (dy < data->tile_size)
+					data->dy = 0;
+					while (data->dy < data->tile_size)
 					{
-						set_pixels(data, draw_x + dx, draw_y + dy, color);
-						dy++;
+						set_pixels(data, data->draw_x + data->dx, data->draw_y + data->dy, data->mini_color);
+						data->dy++;
 					}
-					dx++;
+					data->dx++;
 				}
 			}
 			j++;
@@ -127,49 +116,37 @@ void	draw_player(t_data *data, int player_pixel_x, int player_pixel_y)
 }
 
 void draw_direction_line(t_data *data, int player_pixel_x, int player_pixel_y, int dir_length)
-{
-	int	dir_end_x;
-	int	dir_end_y;
-	int	dx;
-	int	dy;
-	int	sx;
-	int	sy;
-	int	err;
-	int	e2;
-	int	curr_x;
-	int	curr_y;
-	
-	dir_end_x = player_pixel_x + (int)(dir_length * data->dir_x);
-	dir_end_y = player_pixel_y + (int)(dir_length * data->dir_y);
-	dx = abs(dir_end_x - player_pixel_x);
-	dy = abs(dir_end_y - player_pixel_y);
-	if (player_pixel_x < dir_end_x)
-		sx = 1;
+{	
+	data->dir_end_x = player_pixel_x + (int)(dir_length * data->dir_x);
+	data->dir_end_y = player_pixel_y + (int)(dir_length * data->dir_y);
+	data->dx1 = abs(data->dir_end_x - player_pixel_x);
+	data->dy1 = abs(data->dir_end_y - player_pixel_y);
+	if (player_pixel_x < data->dir_end_x)
+		data->sx = 1;
 	else
-		sx = -1;
-	
-	if (player_pixel_y < dir_end_y)
-		sy = 1;
+		data->sx = -1;
+	if (player_pixel_y < data->dir_end_y)
+		data->sy = 1;
 	else
-		sy = -1;
-	err = dx - dy;
-	curr_x = player_pixel_x;
-	curr_y = player_pixel_y;
+		data->sy = -1;
+	data->err = data->dx1 - data->dy1;
+	data->curr_x = player_pixel_x;
+	data->curr_y = player_pixel_y;
 	while (1)
 	{
-		set_pixels(data, curr_x, curr_y, 0xFF0000);
-		if (curr_x == dir_end_x && curr_y == dir_end_y)
+		set_pixels(data, data->curr_x, data->curr_y, 0xFF0000);
+		if (data->curr_x == data->dir_end_x && data->curr_y == data->dir_end_y)
 			break;
-		e2 = 2 * err;
-		if (e2 > -dy)
+		data->e2 = 2 * data->err;
+		if (data->e2 > -data->dy1)
 		{
-			err -= dy;
-			curr_x += sx;
+			data->err -= data->dy1;
+			data->curr_x += data->sx;
 		}
-		if (e2 < dx)
+		if (data->e2 < data->dx1)
 		{
-			err += dx;
-			curr_y += sy;
+			data->err += data->dx1;
+			data->curr_y += data->sy;
 		}
 	}
 }
