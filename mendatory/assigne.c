@@ -6,7 +6,7 @@
 /*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 16:41:52 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/21 08:42:51 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/24 00:04:35 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	assigne_colors(t_data *data)
 		i++;
 	}
 	data->my_color[j] = NULL;
+	bgc_new(&data, data->my_color, sizeof(data->my_color), TwoD_Array);
 }
 
 void	assigne_texture(t_data *data)
@@ -65,4 +66,5 @@ void	assigne_texture(t_data *data)
 		i++;
 	}
 	data->my_map[j] = NULL;
+	bgc_new(&data, data->my_map, sizeof(data->my_map), TwoD_Array);
 }

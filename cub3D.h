@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 00:40:18 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/23 03:20:00 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/24 03:44:11 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -353,5 +353,6 @@ void check_valid_door(t_data *data);
 void				free_(t_data *data);
 int					handle_mouse_move(int x, int y, t_data *data);
 void				print_free_exit(t_data *data);
+void				further_checks(t_data *data, char **starting_map);
 
 #endif

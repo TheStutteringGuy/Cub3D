@@ -6,7 +6,7 @@
 /*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 16:29:25 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/21 08:45:22 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/23 21:07:41 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,16 +66,17 @@ void	split_map(t_data *data)
 	total_lines = 0;
 	while (data->start_map[total_lines])
 		total_lines++;
-	data->new_map = malloc(sizeof(char *) * (7 + 1));
+	data->new_map = malloc(sizeof(char *) * 7);
 	if (!data->new_map)
 		print_malloc_error_message(data);
-	copy_map_section(data->new_map, data->start_map, 0, 7);
-	data->new_map[7] = NULL;
-	data->mini_map = malloc(sizeof(char *) * (total_lines - 7 + 1));
+	copy_map_section(data->new_map, data->start_map, 0, 6);
+	bgc_new(&data, data->new_map, sizeof(data->new_map), TwoD_Array);
+	data->mini_map = malloc(sizeof(char *) * (total_lines - 5 + 1));
 	if (!data->mini_map)
 		print_malloc_error_message(data);
-	copy_map_section(data->mini_map, data->start_map, 7, total_lines - 7);
-	data->mini_map[total_lines - 7] = NULL;
+	copy_map_section(data->mini_map, data->start_map, 6, total_lines - 6);
+	data->mini_map[total_lines - 6] = NULL;
+	bgc_new(&data, data->mini_map, sizeof(data->mini_map), TwoD_Array);
 }
 
 void	handle_spaces(t_data *data)

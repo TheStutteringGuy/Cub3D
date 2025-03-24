@@ -6,7 +6,7 @@
 /*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 01:38:03 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/21 08:21:33 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/24 03:18:31 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,13 @@ void	check_colors(t_data *data)
 	iterate_color_map(data, &i);
 	if (data->count1 != 2)
 	{
-		printf("Error\n incorrect identifier !");
+		printf("Error\n incorrect identifier !\n");
 		free_(data);
 		exit(1);
 	}
 	if (data->len != 4)
 	{
-		printf("Error\n missing or adding ',' !");
+		printf("Error\n missing or adding ',' !\n");
 		free_(data);
 		exit(1);
 	}

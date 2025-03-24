@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+         #
+#    By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 00:08:49 by aahlaqqa          #+#    #+#              #
-#    Updated: 2025/03/23 03:16:28 by aahlaqqa         ###   ########.fr        #
+#    Updated: 2025/03/24 03:58:09 by aibn-ich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ mendatory/errors.c mendatory/check_map1.c mendatory/assigne.c mendatory/textures
 mendatory/init_dirs_and_plans.c mendatory/init_vars.c mendatory/init_textures.c \
 mendatory/calculate_wall.c mendatory/iterate_in_map.c mendatory/iterate_color_map.c \
 mendatory/handle_moves.c mendatory/rotate.c mendatory/free_textures.c \
-mendatory/texture_errors.c mendatory/alloc_texture.c mendatory/init.c mendatory/z_Free.c
+mendatory/texture_errors.c mendatory/alloc_texture.c mendatory/init.c mendatory/z_Free.c mendatory/z_Furhter_checks.c
 
 BONUS= bonus/parse_map.c bonus/check_map.c bonus/ft_strcmp.c Libft/ft_strrchr.c \
 Libft/ft_strlen.c Libft/ft_split.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c \
@@ -39,7 +39,7 @@ bonus/init_dirs_and_plans.c bonus/init_vars.c bonus/init_textures.c \
 bonus/calculate_wall.c bonus/iterate_in_map.c bonus/iterate_color_map.c \
 bonus/handle_moves.c bonus/rotate.c bonus/free_textures.c \
 bonus/texture_errors.c bonus/alloc_texture.c bonus/init.c bonus/mouse.c bonus/z_Free.c \
-bonus/copy_and_free.c bonus/init_texture1.c bonus/animation_door.c bonus/check_door.c
+bonus/copy_and_free.c bonus/init_texture1.c bonus/animation_door.c bonus/check_door.c bonus/z_Furhter_checks.c
 
 EXTRA_SRCS = ./TheStutteringGuy/BGC,/BGC.c
 

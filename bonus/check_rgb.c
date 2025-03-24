@@ -6,7 +6,7 @@
 /*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 16:01:40 by ahmed             #+#    #+#             */
-/*   Updated: 2025/03/21 08:13:00 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/23 21:08:34 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	check_rgb_cell_range(t_data *data)
 		if (data->cell[j] < 0 || data->cell[j] > 255)
 		{
 			printf("Error\n RGB range is incorrect !");
-			free(data);
+			free_(data);
 			exit(1);
 		}
 		j++;

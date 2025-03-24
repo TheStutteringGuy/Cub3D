@@ -6,7 +6,7 @@
 /*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 14:40:09 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/21 08:24:14 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/24 03:57:27 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	check_all_in_map(t_data *data)
 				&& data->mini_map[i][j] != 'S' && data->mini_map[i][j] != 'E'
 				&& data->mini_map[i][j] != ' ')
 			{
-				printf("Error\n incorrect caracter !");
+				printf("Error\n racter !");
 				free_(data);
 				exit(1);
 			}
@@ -108,12 +108,19 @@ void	read_lines(char *path, t_data *data)
 	if (fd < 0)
 	{
 		printf("Error while opening the file !\n");
+		free_(data);
 		exit(1);
 	}
 	lines = start_reading(fd, line);
 	data->start_map = ft_split(lines, '\n');
+	bgc_new(&data, data->start_map, sizeof(data->start_map), TwoD_Array);
 	free(lines);
 	lines = NULL;
+	further_checks(data, data->start_map);
+	/////
+	// free_(data);
+	// exit(1);
+	/////
 	split_map(data);
 	handle_spaces(data);
 	check_prefix(data);

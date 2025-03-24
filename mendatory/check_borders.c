@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_borders.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 00:00:08 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/22 15:51:01 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/24 00:20:44 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	check_top_borders(t_data *data)
 		if (data->mini_map[0][x] != '1' && data->mini_map[0][x] != 32
 			&& data->mini_map[0][x] != '\t')
 		{
-			printf("Error\nNo border !");
+			printf("Error\nNo border !\n");
 			free_(data);
 			exit(1);
 		}
@@ -44,7 +44,7 @@ void	check_bottom_border(t_data *data)
 		if (data->mini_map[j - 1][x] != '1' && data->mini_map[j - 1][x] != 32
 			&& data->mini_map[j - 1][x] != '\t')
 		{
-			printf("Error\nNo border !");
+			printf("Error\nNo border !\n");
 			free_(data);
 			exit(1);
 		}
@@ -67,7 +67,7 @@ void	check_right_border(t_data *data)
 			len--;
 		if (len > 0 && data->mini_map[j][len - 1] != '1')
 		{
-			printf("Error\nNo border !");
+			printf("Error\nNo border !\n");
 			free_(data);
 			exit(1);
 		}
@@ -85,7 +85,7 @@ void	check_left_border(t_data *data)
 		if (data->mini_map[j][0] != '1' && data->mini_map[j][0] != 32
 			&& data->mini_map[j][0] != '\t')
 		{
-			printf("Error\nNo border !");
+			printf("Error\nNo border !\n");
 			free_(data);
 			exit(1);
 		}

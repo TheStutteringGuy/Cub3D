@@ -6,7 +6,7 @@
 /*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 02:45:26 by aibn-ich          #+#    #+#             */
-/*   Updated: 2025/03/20 04:00:36 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/24 01:59:30 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,19 @@ void	*bgc_malloc(t_data **data, size_t size, t_type type)
 	bgc_new(data, ptr, size, type);
 	return (ptr);
 }
+void free_twod_array(void **ptr)
+{
+	int i;
+
+	i = 0;
+	while (ptr[i])
+	{
+		if (ptr[i])
+			free(ptr[i]);
+		++i;
+	}
+	free(ptr);
+}
 
 void	bgc_free(t_data *ptr)
 {
@@ -61,15 +74,15 @@ void	bgc_free(t_data *ptr)
 	{
 		temp = iterate;
 		iterate = iterate->next;
-		if (temp->type == Array)
+		if (temp->type == Array || temp->type == Simple)
 		{
 			if (temp->ptr)
 				free(temp->ptr);
 		}
-		if (temp->type == Simple)
+		if (temp->type == TwoD_Array)
 		{
 			if (temp->ptr)
-				free(temp->ptr);
+				free_twod_array(temp->ptr);
 		}
 		free(temp);
 	}

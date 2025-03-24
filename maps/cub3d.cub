@@ -1,13 +1,13 @@
-C 97, 106,      107    
-NO  images/Dungeon_1.xpm   
+C 97,106,107
+NO images/Dungeon_1.xpm   
 
 WE images/Dungeon_3.xpm
 
 SO images/Dungeon_2.xpm                                                     
 
 
-F 44, 62, 80
-                                                 
+F 44,62,80
+                                              
 
 
 EA images/Dungeon_4.xpm

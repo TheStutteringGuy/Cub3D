@@ -6,7 +6,7 @@
 /*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 17:49:56 by ahmed             #+#    #+#             */
-/*   Updated: 2025/03/21 08:29:43 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/24 03:18:39 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	check_no_identifier(t_data *data)
 	iterate_in_map(&i, data);
 	if (data->count != 4)
 	{
-		printf("Error\n incorrect identifier !");
+		printf("Error\n incorrect identifier !\n");
 		free_(data);
 		exit(1);
 	}

@@ -6,7 +6,7 @@
 /*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 17:24:59 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/21 08:23:36 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/24 03:18:36 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	check_texture(char *str, t_data *data)
 		(data->texture) = str;
 	else
 	{
-		printf("Error\n incorrect texture !");
+		printf("Error\n incorrect texture !\n");
 		free_(data);
 		exit(1);
 	}
