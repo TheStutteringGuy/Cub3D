@@ -6,7 +6,7 @@
 /*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 00:40:18 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/24 00:23:03 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/24 00:51:15 by aahlaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -379,6 +379,9 @@ void	draw_background(t_data *data, int minimap_size);
 void	draw_map_tiles(t_data *data);
 void	draw_player(t_data *data, int player_pixel_x, int player_pixel_y);
 void	draw_direction_line(t_data *data, int player_pixel_x, int player_pixel_y, int dir_length);
+void handle_draw_direction_line(t_data *data, int player_pixel_x, int player_pixel_y, int dir_length);
+void handle_mini_map_colors(t_data *data);
+void init_map_tiles_var(t_data *data);
 ////////////////////////////////////////////////
 
 void				free_(t_data *data);
