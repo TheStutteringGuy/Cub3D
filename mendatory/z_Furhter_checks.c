@@ -6,7 +6,7 @@
 /*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 01:50:02 by aibn-ich          #+#    #+#             */
-/*   Updated: 2025/03/24 03:44:47 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/24 06:09:28 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ bool check_line_one(char *str)
         ++i;
     while (str[i])
     {
-        if (str[i] != '1')
+        if (str[i] != '1' && !ft_isspace(str[i]))
             return false;
         ++i;
     }
