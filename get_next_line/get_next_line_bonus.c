@@ -6,7 +6,7 @@
 /*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 09:30:50 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/24 04:08:46 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/25 00:02:00 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,21 +130,22 @@ char	*get_next_line(int fd)
 	str[fd] = remain_line(str[fd]);
 	return (line);
 }
-int	main(void)
-{
-	int i = 0;
-	int fd1 = open("file1.txt", O_RDONLY);
-	int fd2 = open("file2.txt", O_RDONLY);
-	int fd3 = open("file3.txt", O_RDONLY);
 
-	while (i++ < 4)
-	{
-		char *s1 = get_next_line(fd1);
-		char *s2 = get_next_line(fd2);
-		char *s3 = get_next_line(fd3);
+// int	main(void)
+// {
+// 	int i = 0;
+// 	int fd1 = open("file1.txt", O_RDONLY);
+// 	int fd2 = open("file2.txt", O_RDONLY);
+// 	int fd3 = open("file3.txt", O_RDONLY);
 
-		printf("%s", s1);
-		printf("%s", s2);
-		printf("%s", s3);
-	}
-}
+// 	while (i++ < 4)
+// 	{
+// 		char *s1 = get_next_line(fd1);
+// 		char *s2 = get_next_line(fd2);
+// 		char *s3 = get_next_line(fd3);
+
+// 		printf("%s", s1);
+// 		printf("%s", s2);
+// 		printf("%s", s3);
+// 	}
+// }

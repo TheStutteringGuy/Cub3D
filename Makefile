@@ -6,7 +6,7 @@
 #    By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 00:08:49 by aahlaqqa          #+#    #+#              #
-#    Updated: 2025/03/24 05:18:01 by aibn-ich         ###   ########.fr        #
+#    Updated: 2025/03/24 23:58:24 by aibn-ich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g3
 # LDFLAGS = -g3 -fsanitize=address
-FLAGS = ./minilibx-linux/libmlx.a -lXext -lX11 -lm
+FLAGS = -lmlx -lXext -lX11 -lm
 NAME = cub3D
 BONUS_NAME = cub3D_bonus
 

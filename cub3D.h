@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 00:40:18 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/24 21:40:41 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/24 23:58:57 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "./minilibx-linux/mlx.h"
+# include <mlx.h>
 # include <fcntl.h>
 # include <math.h>
 # include <stdbool.h>
