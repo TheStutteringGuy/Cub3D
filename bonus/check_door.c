@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_door.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 03:16:02 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/24 01:46:43 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/25 03:18:37 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	check_for_doors(t_data *data, int i, int j)
 		if (!data->is_left_right && !data->is_up_down)
 		{
 			printf("Eroor\nDoor should be at least sournded by 2 walls !!\n");
+			free_(data);
 			exit(1);
 		}
 	}

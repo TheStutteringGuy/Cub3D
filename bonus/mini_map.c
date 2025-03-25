@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mini_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahlaqqa <aahlaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 14:12:11 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/24 16:11:32 by aahlaqqa         ###   ########.fr       */
+/*   Updated: 2025/03/25 03:32:11 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	draw_minimap(t_data *data)
 	data->radius = minimap_size / (2 * data->tile_size);
 	data->startx = SCREEN_W - minimap_size - 10;
 	data->starty = 10;
-	draw_background(data, minimap_size);
 	draw_map_tiles(data);
 	player_pixel_x = data->startx + data->radius * data->tile_size
 		+ data->tile_size / 2;
@@ -33,25 +32,6 @@ void	draw_minimap(t_data *data)
 	draw_player(data, player_pixel_x, player_pixel_y);
 	dir_length = 10;
 	draw_direction_line(data, player_pixel_x, player_pixel_y, dir_length);
-}
-
-void	draw_background(t_data *data, int minimap_size)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < minimap_size + 4)
-	{
-		j = 0;
-		while (j < minimap_size + 4)
-		{
-			set_pixels(data, data->startx - 2 + i, data->starty - 2 + j,
-				0x333333);
-			j++;
-		}
-		i++;
-	}
 }
 
 void	init_darw_map_tile(t_data *data, int i, int j)

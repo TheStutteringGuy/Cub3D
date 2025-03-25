@@ -6,7 +6,7 @@
 /*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 16:01:40 by ahmed             #+#    #+#             */
-/*   Updated: 2025/03/21 08:24:39 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/25 02:27:38 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,19 @@
 
 int	pars_rgb_line(char *str, int *index)
 {
-	char	res[4];
+	char	res[100000];
 	int		j;
 
 	j = 0;
-	while (str[*index] && str[*index] != '\0' && str[*index] != ',')
+	while (str[*index] && str[*index] != ',')
 	{
-		if (j <= 3)
-		{
-			res[j] = str[*index];
-			j++;
-		}
+		res[j] = str[*index];
+		j++;
 		(*index)++;
 	}
 	res[j] = '\0';
+	if (str[*index] == '\0')
+		return (ft_atoi(res));
 	if (str[*index] == ',')
 		(*index)++;
 	return (ft_atoi(res));
@@ -74,7 +73,7 @@ void	check_rgb_fllor_range(t_data *data)
 	{
 		if (data->floor[i] < 0 || data->floor[i] > 255)
 		{
-			printf("Error\n RGB range is incorrect !");
+			printf("Error\n RGB range is incorrect !\n");
 			free_(data);
 			exit(1);
 		}
@@ -91,7 +90,7 @@ void	check_rgb_cell_range(t_data *data)
 	{
 		if (data->cell[j] < 0 || data->cell[j] > 255)
 		{
-			printf("Error\n RGB range is incorrect !");
+			printf("Error\n RGB range is incorrect !\n");
 			free_(data);
 			exit(1);
 		}

@@ -6,7 +6,7 @@
 /*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 14:47:38 by aahlaqqa          #+#    #+#             */
-/*   Updated: 2025/03/24 05:12:13 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/25 02:59:35 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ void	init_door_state(t_data *data)
 	bgc_new(&data, data->door_state, sizeof(data->door_state), TwoD_Array);
 	while (i < data->map_width)
 	{
-		data->door_state[i] = malloc(sizeof(bool) * data->map_height);
+		data->door_state[i] = (bool *)malloc(sizeof(bool) * data->map_height);
 		if (!data->door_state[i])
 		{
 			printf("Error while allocating memory !!\n");
 			free_(data);
 			exit(1);
 		}
-		ft_memset(data->door_state[i], 0, sizeof(data->door_state[i]));
+		ft_memset(data->door_state[i], 0, sizeof(bool) * data->map_height);
 		i++;
 	}
 }

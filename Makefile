@@ -6,13 +6,13 @@
 #    By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 00:08:49 by aahlaqqa          #+#    #+#              #
-#    Updated: 2025/03/24 23:58:24 by aibn-ich         ###   ########.fr        #
+#    Updated: 2025/03/25 03:33:03 by aibn-ich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -Werror #-g3
 # LDFLAGS = -g3 -fsanitize=address
 FLAGS = -lmlx -lXext -lX11 -lm
 NAME = cub3D

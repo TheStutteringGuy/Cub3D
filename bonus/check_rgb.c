@@ -6,7 +6,7 @@
 /*   By: aibn-ich <aibn-ich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 16:01:40 by ahmed             #+#    #+#             */
-/*   Updated: 2025/03/23 21:08:34 by aibn-ich         ###   ########.fr       */
+/*   Updated: 2025/03/25 02:35:34 by aibn-ich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,19 @@
 
 int	pars_rgb_line(char *str, int *index)
 {
-	char	res[4];
+	char	res[1000000];
 	int		j;
 
 	j = 0;
-	while (str[*index] && str[*index] != '\0' && str[*index] != ',')
+	while (str[*index] && str[*index] != ',')
 	{
-		if (j <= 3)
-		{
-			res[j] = str[*index];
-			j++;
-		}
+		res[j] = str[*index];
+		j++;
 		(*index)++;
 	}
 	res[j] = '\0';
+	if (str[*index] == '\0')
+		return (ft_atoi(res));
 	if (str[*index] == ',')
 		(*index)++;
 	return (ft_atoi(res));
